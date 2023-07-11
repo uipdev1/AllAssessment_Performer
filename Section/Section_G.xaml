@@ -1,0 +1,1706 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:d="clr-namespace:DataBase_Library;assembly=DataBase_Library" xmlns:g="clr-namespace:Get_Report;assembly=Get Report" xmlns:g1="clr-namespace:Go_BackFromReports;assembly=Go_BackFromReports" xmlns:m="clr-namespace:MDS_Exception;assembly=MDS_Exception" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="clr-namespace:ProgressNotesDT;assembly=ProgressNotesDT" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:s1="clr-namespace:Sort_Output_Datatable;assembly=Sort Output Datatable" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="In_Browser" Type="InArgument(ui:UiElement)" />
+    <x:Property Name="In_MedicareNumber" Type="InArgument(x:String)" />
+    <x:Property Name="In_TypeOfReport" Type="InArgument(x:String)" />
+    <x:Property Name="In_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="In_ARDDate" Type="InArgument(x:String)" />
+    <x:Property Name="In_ResidentName" Type="InArgument(x:String)" />
+    <x:Property Name="In_LookbackStartDate" Type="InArgument(s:DateTime)" />
+    <x:Property Name="In_LookbackEndDate" Type="InArgument(s:DateTime)" />
+    <x:Property Name="OutA0310BAns" Type="InArgument(x:String)" />
+    <x:Property Name="In_ReportName" Type="InArgument(x:String)" />
+    <x:Property Name="In_AssessmentCode" Type="InArgument(x:String)" />
+    <x:Property Name="DT_SectionE" Type="OutArgument(sd:DataTable)" />
+    <x:Property Name="In_KeywordDT" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="In_DTTaskList" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="Out_ExceptionDT" Type="InOutArgument(sd:DataTable)" />
+    <x:Property Name="In_Resident_Number" Type="InArgument(x:String)" />
+    <x:Property Name="In_PythonInput" Type="InArgument(x:String)" />
+    <x:Property Name="In_PythonOutput" Type="InArgument(x:String)" />
+    <x:Property Name="In_PythonIntermediate" Type="InArgument(x:String)" />
+    <x:Property Name="In_FileNamingConvention" Type="InArgument(x:String)" />
+    <x:Property Name="In_PythonScriptFolder" Type="InArgument(x:String)" />
+    <x:Property Name="In_DTFieldNames" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="In_DTProgressNotes" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="In_Ambiguoslist" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="In_DTAssessment" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="In_AssesmentExists" Type="InArgument(x:Boolean)" />
+    <x:Property Name="Out_ADLReportName" Type="OutArgument(x:String)" />
+    <x:Property Name="DB_ExecutionDate" Type="InArgument(x:String)" />
+    <x:Property Name="DB_ARD" Type="InArgument(x:String)" />
+    <x:Property Name="DB_Location" Type="InArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>2520,12737.3333333333</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="71">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.Vision.OCR</x:String>
+      <x:String>UiPath.OCR.Contracts</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.OCR.Contracts.Activities</x:String>
+      <x:String>UiPath.Core.Activities.OCR.Engines</x:String>
+      <x:String>System.Globalization</x:String>
+      <x:String>GetMDS_Answers</x:String>
+      <x:String>UiPath</x:String>
+      <x:String>UiPath.Excel.Activities.Business</x:String>
+      <x:String>ADL_Calculation</x:String>
+      <x:String>UiPath.Excel.Activities.Business.Filter</x:String>
+      <x:String>UiPath.CV</x:String>
+      <x:String>UiPath.Shared.ObjectLibrary</x:String>
+      <x:String>UiPath.CV.Activities</x:String>
+      <x:String>UiPath.OCR.Activities</x:String>
+      <x:String>UiPath.CV.Activities.Interfaces</x:String>
+      <x:String>System.Windows</x:String>
+      <x:String>System.Windows.Media.Animation</x:String>
+      <x:String>System.Windows.Media</x:String>
+      <x:String>System.Windows.Threading</x:String>
+      <x:String>Sort_Output_Datatable</x:String>
+      <x:String>MDS_Exception</x:String>
+      <x:String>Get_Report</x:String>
+      <x:String>UiPath.Python</x:String>
+      <x:String>UiPath.Python.Activities</x:String>
+      <x:String>Go_BackFromReports</x:String>
+      <x:String>UiPath.Shared.Activities.Business</x:String>
+      <x:String>ProgressNotesDT</x:String>
+      <x:String>DataBase_Library</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>UiPath.Excel.Model</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="104">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.Vision.Core</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Contracts</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>GetMDS_Answers</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Interop</AssemblyReference>
+      <AssemblyReference>ADL Calculation</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>UiPath.CV.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Data.Entity</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>Sort Output Datatable</AssemblyReference>
+      <AssemblyReference>MDS_Exception</AssemblyReference>
+      <AssemblyReference>Get Report</AssemblyReference>
+      <AssemblyReference>UiPath.Python</AssemblyReference>
+      <AssemblyReference>UiPath.Python.Activities</AssemblyReference>
+      <AssemblyReference>Go_BackFromReports</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>ProgressNotesDT</AssemblyReference>
+      <AssemblyReference>DataBase_Library</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <sap:WorkflowViewStateService.ViewState>
+    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+      <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
+      <x:Boolean x:Key="ShouldCollapseAll">False</x:Boolean>
+    </scg:Dictionary>
+  </sap:WorkflowViewStateService.ViewState>
+  <Sequence DisplayName="SectionG" sap:VirtualizedContainerService.HintSize="2530,12672.6666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Name="Dt_Section_E_Report" />
+      <Variable x:TypeArguments="x:String" Name="Medicare_Number" />
+      <Variable x:TypeArguments="x:String" Name="Status_Color" />
+      <Variable x:TypeArguments="x:String" Name="ResidentName" />
+      <Variable x:TypeArguments="sd:DataRow" Name="dr_Report" />
+      <Variable x:TypeArguments="x:String" Name="AssessmentRefDate" />
+      <Variable x:TypeArguments="x:String" Name="VarE0100AAns" />
+      <Variable x:TypeArguments="x:Boolean" Name="Final" />
+      <Variable x:TypeArguments="x:String" Name="VarE0100BAns" />
+      <Variable x:TypeArguments="x:String" Name="VarE0200AAns" />
+      <Variable x:TypeArguments="x:String" Name="VarE0200BAns" />
+      <Variable x:TypeArguments="x:String" Name="VarE0200CAns" />
+      <Variable x:TypeArguments="x:String" Name="VarE0800Ans" />
+      <Variable x:TypeArguments="x:String" Name="VarE0900Ans" />
+      <Variable x:TypeArguments="x:String" Name="KeywordOccurance" />
+      <Variable x:TypeArguments="x:String" Name="Months" />
+      <Variable x:TypeArguments="s:DateTime" Name="in_LookBack_Date" />
+      <Variable x:TypeArguments="x:String" Name="in_Day" />
+      <Variable x:TypeArguments="x:String" Name="in_Year" />
+      <Variable x:TypeArguments="x:String" Name="in_Month" />
+      <Variable x:TypeArguments="x:Int32" Name="in_Date" />
+      <Variable x:TypeArguments="x:Boolean" Name="ADLPage" />
+      <Variable x:TypeArguments="x:Boolean" Name="NextADL" />
+      <Variable x:TypeArguments="sd:DataTable" Name="InputDT" />
+      <Variable x:TypeArguments="x:String" Name="SelfSupportScore" />
+      <Variable x:TypeArguments="x:String" Name="Assignment" />
+      <Variable x:TypeArguments="ui:Window" Name="NewTabWindow" />
+      <Variable x:TypeArguments="s:DateTime" Name="EndDate" />
+      <Variable x:TypeArguments="s:DateTime" Name="StartDate" />
+      <Variable x:TypeArguments="sd:DataTable" Name="Dt_Section_G_Report" />
+      <Variable x:TypeArguments="ui:UiElement" Name="Close_Poc" />
+      <Variable x:TypeArguments="x:Int32" Name="VarIndex" />
+      <Variable x:TypeArguments="x:String" Name="Type" />
+      <Variable x:TypeArguments="sd:DataTable" Name="DT_ListOfTasks" />
+      <Variable x:TypeArguments="sd:DataTable" Name="DTMapping_ADL" />
+      <Variable x:TypeArguments="sd:DataTable" Name="DT_BedMobility" />
+      <Variable x:TypeArguments="sd:DataTable" Name="DT_Transfer" />
+      <Variable x:TypeArguments="sd:DataTable" Name="DT_WalkInRoom" />
+      <Variable x:TypeArguments="sd:DataTable" Name="DT_WalkInCorridor" />
+      <Variable x:TypeArguments="sd:DataTable" Name="DT_LocomotionOnUnit" />
+      <Variable x:TypeArguments="sd:DataTable" Name="DT_ToiletUse" />
+      <Variable x:TypeArguments="sd:DataTable" Name="DT_Eating" />
+      <Variable x:TypeArguments="sd:DataTable" Name="DT_Dressing" />
+      <Variable x:TypeArguments="sd:DataTable" Name="DT_Bathing" />
+      <Variable x:TypeArguments="sd:DataTable" Name="DT_PersonalHygiene" />
+      <Variable x:TypeArguments="sd:DataTable" Name="DT_LocomotionOffUnit" />
+      <Variable x:TypeArguments="x:String" Name="OutFileName" />
+      <Variable x:TypeArguments="x:String" Name="FileName" />
+      <Variable x:TypeArguments="x:Boolean" Name="bolFileExists" />
+      <Variable x:TypeArguments="x:Boolean" Name="BoolDT" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="2488,12580.6666666667" sap2010:WorkflowViewState.IdRef="TryCatch_23">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <TryCatch.Try>
+        <Sequence sap:VirtualizedContainerService.HintSize="2449.33333333333,10508" sap2010:WorkflowViewState.IdRef="Sequence_550">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="sd:DataTable" Name="DT_ADLScore" />
+            <Variable x:TypeArguments="x:String" Name="ADL_InputFile" />
+            <Variable x:TypeArguments="x:String" Name="ADL_OutputFile" />
+            <Variable x:TypeArguments="x:String" Name="ADL_IntermediateFile" />
+          </Sequence.Variables>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Edge: Minimum Data Set (MDS 3.0) Summary - Barton, Drake (B4C5910DAF2C4FD)" sap:VirtualizedContainerService.HintSize="2407.33333333333,2439.33333333333" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InUiElement="[In_Browser]" InteractionMode="DebuggerApi" ScopeGuid="08478ca8-c597-4642-bf1b-305a64a86063" Version="V1">
+            <uix:NApplicationCard.Body>
+              <ActivityAction x:TypeArguments="x:Object">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="538.666666666667,2301.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="sd:DataTable" Name="Table" />
+                    <Variable x:TypeArguments="x:Int32" Name="Index" />
+                    <Variable x:TypeArguments="x:Int32" Name="RowIndex" />
+                    <Variable x:TypeArguments="x:String" Name="VarA0310BAns" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:BuildDataTable sap2010:Annotation.AnnotationText="Created Datatable for Sheet G Report." DataTable="[Dt_Section_G_Report]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="496.666666666667,89.3333333333333" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Sr._x0020_No&quot; msdata:AutoIncrement=&quot;true&quot; msdata:Caption=&quot;&quot; type=&quot;xs:int&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Extraction_x0020_DateTime&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Field&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Field_x0020_Name&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Criteria&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Source&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Current_x0020_MDS_x0020_Value&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Previous_x0020_MDS_x0020_Value&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Match_x003F_&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Comment&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:BuildDataTable>
+                  <d:DataBase_Library sap2010:Annotation.AnnotationText="section_update" sap:VirtualizedContainerService.HintSize="496.666666666667,52.6666666666667" sap2010:WorkflowViewState.IdRef="DataBase_Library_1" In_PythonScriptFolder="[In_PythonScriptFolder]" var_ard="[DB_ARD]" var_assessment_type="[In_AssessmentCode]" var_current_section="G" var_db_location="[DB_Location]" var_exec_date="[DB_ExecutionDate]" var_file_name="[In_ReportName]" var_record_type="section_update" var_resident_name="[Split(In_ResidentName,&quot;(&quot;)(0).tostring.trim]" var_resident_number="[In_Resident_Number]" var_robot_id="[Environment.MachineName]" var_status="In Progress">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <d:DataBase_Library.var_comment>
+                      <InArgument x:TypeArguments="x:String">
+                        <Literal x:TypeArguments="x:String" Value="" />
+                      </InArgument>
+                    </d:DataBase_Library.var_comment>
+                    <d:DataBase_Library.var_created_date>
+                      <InArgument x:TypeArguments="x:String">
+                        <Literal x:TypeArguments="x:String" Value="" />
+                      </InArgument>
+                    </d:DataBase_Library.var_created_date>
+                    <d:DataBase_Library.var_exception_type>
+                      <InArgument x:TypeArguments="x:String">
+                        <Literal x:TypeArguments="x:String" Value="" />
+                      </InArgument>
+                    </d:DataBase_Library.var_exception_type>
+                    <d:DataBase_Library.var_facility_name>
+                      <InArgument x:TypeArguments="x:String">
+                        <Literal x:TypeArguments="x:String" Value="" />
+                      </InArgument>
+                    </d:DataBase_Library.var_facility_name>
+                    <d:DataBase_Library.var_modified_date>
+                      <InArgument x:TypeArguments="x:String">
+                        <Literal x:TypeArguments="x:String" Value="" />
+                      </InArgument>
+                    </d:DataBase_Library.var_modified_date>
+                    <d:DataBase_Library.var_processing_time>
+                      <InArgument x:TypeArguments="x:String">
+                        <Literal x:TypeArguments="x:String" Value="" />
+                      </InArgument>
+                    </d:DataBase_Library.var_processing_time>
+                    <d:DataBase_Library.var_rerun_count>
+                      <InArgument x:TypeArguments="x:String">
+                        <Literal x:TypeArguments="x:String" Value="" />
+                      </InArgument>
+                    </d:DataBase_Library.var_rerun_count>
+                    <d:DataBase_Library.var_resident_info>
+                      <InArgument x:TypeArguments="x:String">
+                        <Literal x:TypeArguments="x:String" Value="" />
+                      </InArgument>
+                    </d:DataBase_Library.var_resident_info>
+                    <d:DataBase_Library.var_source>
+                      <InArgument x:TypeArguments="x:String">
+                        <Literal x:TypeArguments="x:String" Value="" />
+                      </InArgument>
+                    </d:DataBase_Library.var_source>
+                    <d:DataBase_Library.var_temp_data_file>
+                      <InArgument x:TypeArguments="x:String">
+                        <Literal x:TypeArguments="x:String" Value="" />
+                      </InArgument>
+                    </d:DataBase_Library.var_temp_data_file>
+                    <d:DataBase_Library.var_temp_python_param_file>
+                      <InArgument x:TypeArguments="x:String">
+                        <Literal x:TypeArguments="x:String" Value="" />
+                      </InArgument>
+                    </d:DataBase_Library.var_temp_python_param_file>
+                  </d:DataBase_Library>
+                  <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="496.666666666667,160.666666666667" sap2010:WorkflowViewState.IdRef="MultipleAssign_55">
+                    <ui:MultipleAssign.AssignOperations>
+                      <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_456">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="x:String">[ResidentName]</OutArgument>
+                          </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="x:String">[In_ResidentName]</InArgument>
+                          </ui:AssignOperation.Value>
+                        </ui:AssignOperation>
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_457">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="x:String">[AssessmentRefDate]</OutArgument>
+                          </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="x:String">[In_ARDDate]</InArgument>
+                          </ui:AssignOperation.Value>
+                        </ui:AssignOperation>
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_458">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="x:String">[VarA0310BAns]</OutArgument>
+                          </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="x:String">[OutA0310BAns]</InArgument>
+                          </ui:AssignOperation.Value>
+                        </ui:AssignOperation>
+                      </scg:List>
+                    </ui:MultipleAssign.AssignOperations>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:MultipleAssign>
+                  <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="496.666666666667,529.333333333333" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="3" RetryInterval="00:00:05">
+                    <ui:RetryScope.ActivityBody>
+                      <ActivityAction>
+                        <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="242,282.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_544">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_27" Level="Info" Message="[&quot;MDS Section Retry&quot;]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:LogMessage>
+                          <uix:NGetAttribute sap2010:Annotation.AnnotationText="Selected selector for getting status and color of Section G" Attribute="class" DisplayName="Get Attribute 'G'" sap:VirtualizedContainerService.HintSize="200,98" sap2010:WorkflowViewState.IdRef="NGetAttribute_1" ScopeIdentifier="08478ca8-c597-4642-bf1b-305a64a86063" Version="V1">
+                            <uix:NGetAttribute.Result>
+                              <OutArgument x:TypeArguments="x:String">[Status_Color]</OutArgument>
+                            </uix:NGetAttribute.Result>
+                            <uix:NGetAttribute.Target>
+                              <uix:TargetAnchorable BrowserURL="https://www28.pointclickcare.com/clinical/mds3/sectionlisting.xhtml?ESOLassessid=25437735&amp;retURL=%2Fadmin%2Fclient%2Fcp_mds.jsp%3FESOLclientid%3D19735078" DesignTimeRectangle="1051, 518, 162, 162" FriendlyName="'Functional Status'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div' idx='7' parentid='mdssectionlist' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' class='section_box complete' parentid='mdssectionlist' tag='DIV' aaname=' &amp;#x9;  &amp;#x9; &amp;#x9; &amp;#x9; ' /&gt;" Guid="c26e2e1a-c744-4faf-a542-bc0cb433b159" ImageBase64="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" InformativeScreenshot="95d1b711d1594d00b9f6e872f1322768.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Minimum Data Set (MDS 3.0) Summary - Wooldridge, Freda (N412796)' /&gt;" SearchSteps="FuzzySelector" Visibility="Interactive">
+                                <uix:TargetAnchorable.Anchors>
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                    <uix:Target DesignTimeRectangle="1051, 563, 162, 64" ElementType="Text" FriendlyName="'G'" FullSelectorArgument="&lt;webctrl idx='7' tag='H2' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' tag='H2' class='' aaname='G' check:innerText='G' /&gt;" ImageBase64="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" SearchSteps="FuzzySelector" />
+                                  </scg:List>
+                                </uix:TargetAnchorable.Anchors>
+                              </uix:TargetAnchorable>
+                            </uix:NGetAttribute.Target>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </uix:NGetAttribute>
+                        </Sequence>
+                      </ActivityAction>
+                    </ui:RetryScope.ActivityBody>
+                    <ui:RetryScope.Condition>
+                      <ActivityFunc x:TypeArguments="x:Boolean">
+                        <ui:UiElementExists Exists="{x:Null}" DisplayName="Element Exists" sap:VirtualizedContainerService.HintSize="334,86" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
+                          <ui:UiElementExists.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="873a0c03-9bfd-49b7-b8dc-1a17c1aef409" Selector="&lt;webctrl idx='7' tag='H2' /&gt;" TimeoutMS="5000">
+                              <ui:Target.WaitForReady>
+                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                              </ui:Target.WaitForReady>
+                            </ui:Target>
+                          </ui:UiElementExists.Target>
+                        </ui:UiElementExists>
+                      </ActivityFunc>
+                    </ui:RetryScope.Condition>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:RetryScope>
+                  <Switch x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="switch case is used in between for selector for getting status and color of Section G" DisplayName="Switch" Expression="[Status_Color]" sap:VirtualizedContainerService.HintSize="496.666666666667,650" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Assign x:Key="section_box complete" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_2">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[Status_Color]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">["Completed" + " " + "(Green)"]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <Assign x:Key="section_box errors" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_3">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[Status_Color]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">["In Progress" + "(Red)"]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <Assign x:Key="section_box in_progress" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_4">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[Status_Color]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">["In Progress"+" "+"(Yellow)"]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                  </Switch>
+                  <Assign sap:VirtualizedContainerService.HintSize="496.666666666667,62" sap2010:WorkflowViewState.IdRef="Assign_7">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[AssessmentRefDate]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[In_ARDDate]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <uix:NClick ClickType="Single" DisplayName="Click 'Back to MDS List'" sap:VirtualizedContainerService.HintSize="496.666666666667,158" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="08478ca8-c597-4642-bf1b-305a64a86063" Version="V1">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="https://www28.pointclickcare.com/clinical/mds3/sectionlisting.xhtml?ESOLassessid=25006553" DesignTimeRectangle="54, 523, 108, 24" ElementType="Text" FriendlyName="'Back to MDS List'" FullSelectorArgument="&lt;html app='msedge.exe' title='Minimum Data Set (MDS 3.0) Summary*' /&gt;&lt;webctrl parentid='backToMDSListButton' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='backToMDSListButton' tag='SPAN' type='' aaname='Back to MDS List' check:text='Back to MDS List' /&gt;" Guid="aafcdec7-91ba-4266-a543-05bf3ad5a818" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHAAAAAcCAYAAAC51jtqAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAASTSURBVGhD7Zp9SypNFMD9cH4XX7+Ghkr5IRSRbM3+6h+RSBLJFJEkKbMEI6ioCILohXPnzJzZnRlnt+6F517l2QM/3JnzPsO6LxqBUNZawg1cc4lsb29DyL/HcRzY39+Ho6MjODs7g4eHB9qiYAnPwBWRz89PeHl5gcViAaPRCHZ3d+Hk5ATu7+/Jwi7hBq6ovL+/w+XlJT8rp9MpzS5LuIErLs/Pz7Czs8O/Vm0SbuAayOvrK99E25kYbuCaCJ6J+HVqXhPDDVwjwWsi3tioEvn6+gLBAIrRKESXKMLAtfkDbvYgzeKk927sehW0LQ7sugBu9tJuvcWBNz8oyh7SsHfD5qgWrzeB6iMw1sKvpqDe/oO+397e+N2p+ogR+fj4AEEftrDYrT6N/eZ+k0VDNNJY2PUuf55r0fA20PNfQCNNc2wDGws2Z6lF+m71vXj9LeaTbsDCR+/y496C+L2+h8OhdkMTwV0V9GATA232aIzMoZ5ic6k6zGmut4kLItmEnmkrdTLOvA4pNk7V52xMOTQ/i6+bT9oLRAzVTzCvp4Q+xT6lr8yLc9EU1OfKnBbH7FHWQj6unQVrPB8djWUvmz208+vbn6urK/6wLyWCdziCLhQwSKFLY8bMgaQ61y1ANOnAzKLrFtix1KEd0xW6nl3SmQmbaBKcGZtHOw0zvzFWY2p+rzBzkkJXQBsRX8wVwOGflFOpRfUXdRWgy8czcJI4FtjyufjEW9ZRTFofPZ9l3QO4u7vjNzNSIvj0L+hAnorWyUPHtRF08oo+33F9k7WpZseZ1sRGE/mOoXeh/DweG3fyhv0UanwRajDV/F5gWhMbmO94dfAamW2H65JQmzJbqsWsU/Sj9GnUbMup2gX1LXRUuzWW0fc3PD098dduUiKPj48gaEMOA+XaNEYmUE1g4gRUJ48wqSZEEdxGsZ9UIcGOE9WJ4kuQzl2MRBUmpg1Hzy9yibxCT7VY/GVduTbZ5HI8FtajxfGps53D2nLQVua83gVBvf1I1865sThuH7Z19wcfI7QNxFNScAAbGGjjgMaCcSXOEsahMh5DJc708QqMl+ztvpxxBeKkE7GisHFg2HCMGAcbhq2Z30ONK4/1MdbPbKmWeGWs+PvH5Sj1++n0eN/pqE9XF7B2Fq6vr/Wv0NvbWxC0IIuBsi0aIyMoxzBZFlps3Mp6x6NyjBch7VXd7agMMaaLlUf6scwRK8OIx1cx8xvjVpbny7ZUH4GshevITq8zBuUR02m1kL8Zl2zcvDYfyY91Qb3Y1t2f09NT/SYG334LmpDBQEvEoDQkm2FJNEfzMdzcWAmG3H8IJb7ZRKap+cRKQzFuZrg+06SYCs2M9M9Ak8/pNdl8kGFJbKDQkw/VJXTUg1Z/QFyq0UX2YuITj9ubfZu2Sszlvv2RPzdJiczncwhZD2az2fKDPD5XhKwHx8fHy6/S8P1ayOqD1z7ry2ybcchqgdc835+TbA4hqwOeeYE/6NqcQv495+fn0O12v/9Lhc055O9zcXEB4/EY+v0+HB4e/vxPTba/uIX8fcK/Ff5PJdzAtRaAXwm1m9azUTWYAAAAAElFTkSuQmCC" InformativeScreenshot="350351d6ba05c814fa8ef47c672f1d59.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Minimum Data Set (MDS 3.0) Summary - Barton, Drake (B4C5910DAF2C4FD)' /&gt;" SearchSteps="Selector" />
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <ui:FilterDataTable DataTable="[In_DTFieldNames]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="496.666666666667,162.666666666667" sap2010:WorkflowViewState.IdRef="FilterDataTable_40" OutputDataTable="[In_DTFieldNames]" SelectColumnsMode="Keep">
+                    <ui:FilterDataTable.Filters>
+                      <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
+                        <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
+                          <ui:FilterOperationArgument.Column>
+                            <InArgument x:TypeArguments="x:Int32">[0]</InArgument>
+                          </ui:FilterOperationArgument.Column>
+                          <ui:FilterOperationArgument.Operand>
+                            <InArgument x:TypeArguments="x:String">["G"]</InArgument>
+                          </ui:FilterOperationArgument.Operand>
+                        </ui:FilterOperationArgument>
+                      </scg:List>
+                    </ui:FilterDataTable.Filters>
+                    <ui:FilterDataTable.SelectColumns>
+                      <scg:List x:TypeArguments="InArgument" Capacity="4">
+                        <x:Null />
+                      </scg:List>
+                    </ui:FilterDataTable.SelectColumns>
+                  </ui:FilterDataTable>
+                  <p:GetProgressNotesData sap:VirtualizedContainerService.HintSize="496.666666666667,22" sap2010:WorkflowViewState.IdRef="GetProgressNotesData_1" In_FieldDT="[In_DTFieldNames]" In_KeywordDT="[In_KeywordDT]" In_ProgressNotesDT="[In_DTProgressNotes]" In_ReferenceKeywordDT="[In_Ambiguoslist]" In_ReportDT="[Dt_Section_G_Report]" />
+                </Sequence>
+              </ActivityAction>
+            </uix:NApplicationCard.Body>
+            <uix:NApplicationCard.TargetApp>
+              <uix:TargetApp Area="-8, -8, 1616, 876" BrowserType="Edge" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADCSURBVDhPY3B0cPpPCUYxIKhd63/6Xk2seMK5hP9TzqeiaAZhvAak7tL4n7YH1aD5V0qJMyB8gTKKwuRtGnC5gDoduDhuAxaiGuARawGXS9ysDhcn2gBnXxu4XPwGNbg40QZk7tOBywVOVYCL4zRgybXq/x2nQ/9vuN33f/3tHrg4KGCR9eA0ABsG+d3J1Z44AxI2qoO9ETpH6b9Xpxw4DJDVwjDRYYALDzcDAlu1/seuVQNjUOAhy+HCKAaQjp3+AwD33/G5tGA3hwAAAABJRU5ErkJggg==" InformativeScreenshot="74bc529450c5214c2c9001a127aa62b5.png" Selector="&lt;html app='msedge.exe' title='Minimum Data Set (MDS 3.0) Summary - Barton, Drake (B4C5910DAF2C4FD)'/&gt;" />
+            </uix:NApplicationCard.TargetApp>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </uix:NApplicationCard>
+          <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="2407.33333333333,52.6666666666667" sap2010:WorkflowViewState.IdRef="MultipleAssign_67">
+            <ui:MultipleAssign.AssignOperations>
+              <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_537">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="s:DateTime">[StartDate]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="s:DateTime">[In_LookbackStartDate]</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_538">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="s:DateTime">[EndDate]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="s:DateTime">[In_LookbackEndDate]</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+              </scg:List>
+            </ui:MultipleAssign.AssignOperations>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:MultipleAssign>
+          <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="2407.33333333333,52.6666666666667" sap2010:WorkflowViewState.IdRef="MultipleAssign_66">
+            <ui:MultipleAssign.AssignOperations>
+              <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_534">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[ADL_InputFile]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">[In_PythonInput+"ADL_"+In_FileNamingConvention+".pdf"]</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_535">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[ADL_OutputFile]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">[In_PythonOutput+"ADL_"+In_FileNamingConvention+"_Out.xls"]</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="AssignOperation_536">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[ADL_IntermediateFile]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">[In_PythonIntermediate+"INT_ADL_"+In_FileNamingConvention+".csv"]</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_548">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[Out_ADLReportName]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">[ADL_InputFile]</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+              </scg:List>
+            </ui:MultipleAssign.AssignOperations>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:MultipleAssign>
+          <Sequence sap:VirtualizedContainerService.HintSize="2407.33333333333,7206.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_603">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:Boolean" Name="IsReportAvailable" />
+              <Variable x:TypeArguments="x:Boolean" Name="InFileExists" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:FileExistsX DisplayName="File Exists" Exists="[InFileExists]" sap:VirtualizedContainerService.HintSize="2365.33333333333,135.333333333333" sap2010:WorkflowViewState.IdRef="FileExistsX_1" Path="[ADL_InputFile]">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:FileExistsX>
+            <If Condition="[InFileExists]" sap:VirtualizedContainerService.HintSize="2365.33333333333,1084.66666666667" sap2010:WorkflowViewState.IdRef="If_151">
+              <If.Then>
+                <Sequence sap:VirtualizedContainerService.HintSize="376,423.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_618">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_64" Level="Info" Message="[&quot;Input Pdf Already exists -&quot;+ADL_InputFile]">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:LogMessage>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_65" Level="Info" Message="[&quot;Skipping report downloading process..&quot;]">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:LogMessage>
+                  <Assign sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_392">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Boolean">[IsReportAvailable]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence sap:VirtualizedContainerService.HintSize="480.666666666667,920.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_619">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="438.666666666667,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_66" Level="Info" Message="[&quot;Report downloading section started...&quot;]" />
+                  <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438.666666666667,539.333333333333" sap2010:WorkflowViewState.IdRef="TryCatch_24">
+                    <TryCatch.Try>
+                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke GetReport workflow" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="MigratedLibraries\\GetReport.xaml">
+                        <ui:InvokeWorkflowFile.Arguments>
+                          <InArgument x:TypeArguments="x:String" x:Key="In_LookbackReportType">ADLs</InArgument>
+                          <InArgument x:TypeArguments="s:DateTime" x:Key="In_EndDate">[EndDate]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="In_ResidentNumber">[In_Resident_Number]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="In_FilePath">[ADL_InputFile]</InArgument>
+                          <OutArgument x:TypeArguments="x:String" x:Key="Out_FileName" />
+                          <OutArgument x:TypeArguments="x:Boolean" x:Key="Is_ReportAvailable">[IsReportAvailable]</OutArgument>
+                        </ui:InvokeWorkflowFile.Arguments>
+                      </ui:InvokeWorkflowFile>
+                    </TryCatch.Try>
+                    <TryCatch.Catches>
+                      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404.666666666667,105.333333333333" sap2010:WorkflowViewState.IdRef="Catch`1_24">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ActivityAction x:TypeArguments="s:Exception">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                          </ActivityAction.Argument>
+                          <Rethrow sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Rethrow_2" />
+                        </ActivityAction>
+                      </Catch>
+                    </TryCatch.Catches>
+                  </TryCatch>
+                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="438.666666666667,52.6666666666667" sap2010:WorkflowViewState.IdRef="CommentOut_121">
+                    <ui:CommentOut.Body>
+                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="242,114" sap2010:WorkflowViewState.IdRef="Sequence_631">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <g:Get_Report Out_FileName="{x:Null}" DisplayName="Get Report" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Get_Report_2" In_EndDate="[EndDate]" In_FilePath="[ADL_InputFile]" In_LookbackReportType="ADLs" In_ResidentNumber="[In_Resident_Number]" Is_ReportAvailable="[IsReportAvailable]" />
+                      </Sequence>
+                    </ui:CommentOut.Body>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:CommentOut>
+                  <Delay Duration="00:00:10" sap:VirtualizedContainerService.HintSize="438.666666666667,22" sap2010:WorkflowViewState.IdRef="Delay_26" />
+                </Sequence>
+              </If.Else>
+            </If>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="2365.33333333333,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_57" Level="Info" Message="[ADL_InputFile]" />
+            <Assign sap:VirtualizedContainerService.HintSize="2365.33333333333,62" sap2010:WorkflowViewState.IdRef="Assign_389">
+              <Assign.To>
+                <OutArgument x:TypeArguments="sd:DataTable">[DT_ListOfTasks]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="sd:DataTable">[In_DTTaskList]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <If Condition="[IsReportAvailable]" sap:VirtualizedContainerService.HintSize="2365.33333333333,5578" sap2010:WorkflowViewState.IdRef="If_150">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <If.Then>
+                <Sequence sap:VirtualizedContainerService.HintSize="376,183" sap2010:WorkflowViewState.IdRef="Sequence_604">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_59" Level="Info" Message="[&quot;Report Not Available&quot;]">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:LogMessage>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence sap:VirtualizedContainerService.HintSize="1943.33333333333,5414" sap2010:WorkflowViewState.IdRef="Sequence_605">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="ui:WorkbookApplication" Name="Workbook" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1901.33333333333,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_63" Level="Info" Message="[&quot;Report downloaded..&quot;]" />
+                  <ui:StartProcess Arguments="[ADL_InputFile+&quot; &quot;+ADL_IntermediateFile+&quot; &quot;+ADL_OutputFile]" DisplayName="Start Process" FileName="[In_PythonScriptFolder+&quot;Section_G_ADL.bat&quot;]" sap:VirtualizedContainerService.HintSize="1901.33333333333,86.6666666666667" sap2010:WorkflowViewState.IdRef="StartProcess_1" WorkingDirectory="[In_PythonScriptFolder.Remove(In_PythonScriptFolder.Length-1)]" />
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1901.33333333333,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_51" Level="Info" Message="[&quot;Python Script run successfully.&quot;]" />
+                  <Delay Duration="00:00:10" sap:VirtualizedContainerService.HintSize="1901.33333333333,22" sap2010:WorkflowViewState.IdRef="Delay_31" />
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1901.33333333333,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_61" Level="Info" Message="[&quot;ADL Output:-&quot;+ADL_OutputFile]" />
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1901.33333333333,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_71" Level="Warn" Message="[&quot;Start Read Range&quot;]" />
+                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke ReadRange workflow" sap:VirtualizedContainerService.HintSize="1901.33333333333,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Excel\\ReadRange_ADL.xaml">
+                    <ui:InvokeWorkflowFile.Arguments>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_ExcelPath">
+                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="ADL_OutputFile" />
+                      </InArgument>
+                      <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_DataTable">
+                        <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="DT_ADLScore" />
+                      </OutArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_SheetName">
+                        <Literal x:TypeArguments="x:String">ADL_Score</Literal>
+                      </InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_Range">
+                        <Literal x:TypeArguments="x:String" Value="" />
+                      </InArgument>
+                      <OutArgument x:TypeArguments="x:Boolean" x:Key="out_FileExists">
+                        <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="bolFileExists" />
+                      </OutArgument>
+                    </ui:InvokeWorkflowFile.Arguments>
+                  </ui:InvokeWorkflowFile>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1901.33333333333,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_72" Level="Warn" Message="[&quot;End Read Range&quot;]" />
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1901.33333333333,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_68" Level="Warn" Message="[&quot;File &quot;+ bolFileExists.ToString]" />
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1901.33333333333,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_88" Level="Warn" Message="[&quot;Star DT Validation&quot;]" />
+                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke DTValidation workflow" sap:VirtualizedContainerService.HintSize="1901.33333333333,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Tools\\DTValidation.xaml">
+                    <ui:InvokeWorkflowFile.Arguments>
+                      <InArgument x:TypeArguments="sd:DataTable" x:Key="In_DtValidation">[DT_ADLScore]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="In_strDtName">DT_ADLScore</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="In_strSection">SectionG</InArgument>
+                      <OutArgument x:TypeArguments="x:Boolean" x:Key="Out_BoolDT">[BoolDT]</OutArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="In_ColumnsName">ADL</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="In_ResidentName">[In_ResidentName]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="In_MedicareNumber">[In_MedicareNumber]</InArgument>
+                    </ui:InvokeWorkflowFile.Arguments>
+                  </ui:InvokeWorkflowFile>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1901.33333333333,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_89" Level="Info" Message="[&quot;Complet Data validation&quot;]" />
+                  <If Condition="[bolFileExists]" sap:VirtualizedContainerService.HintSize="1901,3748" sap2010:WorkflowViewState.IdRef="If_153">
+                    <If.Then>
+                      <Sequence sap:VirtualizedContainerService.HintSize="1865,3561" sap2010:WorkflowViewState.IdRef="Sequence_629">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[DT_ListOfTasks]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="1823,3469" sap2010:WorkflowViewState.IdRef="ForEachRow_23">
+                          <ui:ForEachRow.Body>
+                            <ActivityAction x:TypeArguments="sd:DataRow">
+                              <ActivityAction.Argument>
+                                <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+                              </ActivityAction.Argument>
+                              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1789,3354" sap2010:WorkflowViewState.IdRef="Sequence_595">
+                                <Sequence.Variables>
+                                  <Variable x:TypeArguments="sd:DataTable" Name="Out_DTADLScore" />
+                                  <Variable x:TypeArguments="x:String" Name="FieldName" />
+                                </Sequence.Variables>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <If Condition="[BoolDT]" DisplayName="If - DT Validation" sap:VirtualizedContainerService.HintSize="1747,3262" sap2010:WorkflowViewState.IdRef="If_156">
+                                  <If.Then>
+                                    <Sequence sap:VirtualizedContainerService.HintSize="1033,2602" sap2010:WorkflowViewState.IdRef="Sequence_637">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <ui:FilterDataTable DataTable="[DT_ADLScore]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="991,160" sap2010:WorkflowViewState.IdRef="FilterDataTable_39" OutputDataTable="[Out_DTADLScore]" SelectColumnsMode="Keep">
+                                        <ui:FilterDataTable.Filters>
+                                          <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
+                                            <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
+                                              <ui:FilterOperationArgument.Column>
+                                                <InArgument x:TypeArguments="x:String">["ADL"]</InArgument>
+                                              </ui:FilterOperationArgument.Column>
+                                              <ui:FilterOperationArgument.Operand>
+                                                <InArgument x:TypeArguments="x:String">[CurrentRow("ADL").ToString]</InArgument>
+                                              </ui:FilterOperationArgument.Operand>
+                                            </ui:FilterOperationArgument>
+                                          </scg:List>
+                                        </ui:FilterDataTable.Filters>
+                                        <ui:FilterDataTable.SelectColumns>
+                                          <scg:List x:TypeArguments="InArgument" Capacity="4">
+                                            <x:Null />
+                                          </scg:List>
+                                        </ui:FilterDataTable.SelectColumns>
+                                      </ui:FilterDataTable>
+                                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="991,91" sap2010:WorkflowViewState.IdRef="LogMessage_81" Level="Info" Message="[&quot;First Filter Complet -ADL ColumG-&quot;]" />
+                                      <Assign sap:VirtualizedContainerService.HintSize="991,60" sap2010:WorkflowViewState.IdRef="Assign_390">
+                                        <Assign.To>
+                                          <OutArgument x:TypeArguments="sd:DataRow">[dr_Report]</OutArgument>
+                                        </Assign.To>
+                                        <Assign.Value>
+                                          <InArgument x:TypeArguments="sd:DataRow">[Dt_Section_G_Report.NewRow]</InArgument>
+                                        </Assign.Value>
+                                      </Assign>
+                                      <Assign sap:VirtualizedContainerService.HintSize="991,60" sap2010:WorkflowViewState.IdRef="Assign_391">
+                                        <Assign.To>
+                                          <OutArgument x:TypeArguments="x:String">[FieldName]</OutArgument>
+                                        </Assign.To>
+                                        <Assign.Value>
+                                          <InArgument x:TypeArguments="x:String">[CurrentRow("Field").ToString]</InArgument>
+                                        </Assign.Value>
+                                      </Assign>
+                                      <If Condition="[Out_DTADLScore.RowCount&gt;0]" sap:VirtualizedContainerService.HintSize="991,660" sap2010:WorkflowViewState.IdRef="If_149">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <If.Then>
+                                          <Sequence sap:VirtualizedContainerService.HintSize="473,471" sap2010:WorkflowViewState.IdRef="Sequence_593">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <ui:MultipleAssign sap2010:Annotation.AnnotationText="Mutiple Assign for ADL. " DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="431,379" sap2010:WorkflowViewState.IdRef="MultipleAssign_64">
+                                              <ui:MultipleAssign.AssignOperations>
+                                                <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
+                                                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_515">
+                                                    <ui:AssignOperation.To>
+                                                      <OutArgument x:TypeArguments="x:Object">[dr_Report("Extraction DateTime")]</OutArgument>
+                                                    </ui:AssignOperation.To>
+                                                    <ui:AssignOperation.Value>
+                                                      <InArgument x:TypeArguments="x:String">[System.DateTime.Now.ToString(“MM-dd-yyyy hh:mm:ss”)]</InArgument>
+                                                    </ui:AssignOperation.Value>
+                                                  </ui:AssignOperation>
+                                                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_516">
+                                                    <ui:AssignOperation.To>
+                                                      <OutArgument x:TypeArguments="x:Object">[dr_Report("Field")]</OutArgument>
+                                                    </ui:AssignOperation.To>
+                                                    <ui:AssignOperation.Value>
+                                                      <InArgument x:TypeArguments="x:String">[FieldName]</InArgument>
+                                                    </ui:AssignOperation.Value>
+                                                  </ui:AssignOperation>
+                                                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_517">
+                                                    <ui:AssignOperation.To>
+                                                      <OutArgument x:TypeArguments="x:Object">[dr_Report("Field Name")]</OutArgument>
+                                                    </ui:AssignOperation.To>
+                                                    <ui:AssignOperation.Value>
+                                                      <InArgument x:TypeArguments="x:Object">[CurrentRow("TaskName").ToString]</InArgument>
+                                                    </ui:AssignOperation.Value>
+                                                  </ui:AssignOperation>
+                                                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_518">
+                                                    <ui:AssignOperation.To>
+                                                      <OutArgument x:TypeArguments="x:Object">[dr_Report("Source")]</OutArgument>
+                                                    </ui:AssignOperation.To>
+                                                    <ui:AssignOperation.Value>
+                                                      <InArgument x:TypeArguments="x:Object">["POC"]</InArgument>
+                                                    </ui:AssignOperation.Value>
+                                                  </ui:AssignOperation>
+                                                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_519">
+                                                    <ui:AssignOperation.To>
+                                                      <OutArgument x:TypeArguments="x:Object">[dr_Report("Criteria")]</OutArgument>
+                                                    </ui:AssignOperation.To>
+                                                    <ui:AssignOperation.Value>
+                                                      <InArgument x:TypeArguments="x:Object">["ADL Score"]</InArgument>
+                                                    </ui:AssignOperation.Value>
+                                                  </ui:AssignOperation>
+                                                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_520">
+                                                    <ui:AssignOperation.To>
+                                                      <OutArgument x:TypeArguments="x:Object">[dr_Report("Previous MDS Value")]</OutArgument>
+                                                    </ui:AssignOperation.To>
+                                                    <ui:AssignOperation.Value>
+                                                      <InArgument x:TypeArguments="x:Object">["NA"]</InArgument>
+                                                    </ui:AssignOperation.Value>
+                                                  </ui:AssignOperation>
+                                                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_521">
+                                                    <ui:AssignOperation.To>
+                                                      <OutArgument x:TypeArguments="x:Object">[dr_Report("Match?")]</OutArgument>
+                                                    </ui:AssignOperation.To>
+                                                    <ui:AssignOperation.Value>
+                                                      <InArgument x:TypeArguments="x:Object">["NA"]</InArgument>
+                                                    </ui:AssignOperation.Value>
+                                                  </ui:AssignOperation>
+                                                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_522">
+                                                    <ui:AssignOperation.To>
+                                                      <OutArgument x:TypeArguments="x:Object">[dr_Report("Comment")]</OutArgument>
+                                                    </ui:AssignOperation.To>
+                                                    <ui:AssignOperation.Value>
+                                                      <InArgument x:TypeArguments="x:Object">[""]</InArgument>
+                                                    </ui:AssignOperation.Value>
+                                                  </ui:AssignOperation>
+                                                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_523">
+                                                    <ui:AssignOperation.To>
+                                                      <OutArgument x:TypeArguments="x:Object">[dr_Report("Current MDS Value")]</OutArgument>
+                                                    </ui:AssignOperation.To>
+                                                    <ui:AssignOperation.Value>
+                                                      <InArgument x:TypeArguments="x:Object">[Out_DTADLScore(0)(“Score”)]</InArgument>
+                                                    </ui:AssignOperation.Value>
+                                                  </ui:AssignOperation>
+                                                </scg:List>
+                                              </ui:MultipleAssign.AssignOperations>
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                            </ui:MultipleAssign>
+                                          </Sequence>
+                                        </If.Then>
+                                        <If.Else>
+                                          <Sequence sap:VirtualizedContainerService.HintSize="473,502" sap2010:WorkflowViewState.IdRef="Sequence_594">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <ui:MultipleAssign sap2010:Annotation.AnnotationText="Mutiple Assign for ADL. " DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="431,410" sap2010:WorkflowViewState.IdRef="MultipleAssign_65">
+                                              <ui:MultipleAssign.AssignOperations>
+                                                <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
+                                                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_524">
+                                                    <ui:AssignOperation.To>
+                                                      <OutArgument x:TypeArguments="x:Object">[dr_Report("Extraction DateTime")]</OutArgument>
+                                                    </ui:AssignOperation.To>
+                                                    <ui:AssignOperation.Value>
+                                                      <InArgument x:TypeArguments="x:String">[System.DateTime.Now.ToString(“MM-dd-yyyy hh:mm:ss”)]</InArgument>
+                                                    </ui:AssignOperation.Value>
+                                                  </ui:AssignOperation>
+                                                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_525">
+                                                    <ui:AssignOperation.To>
+                                                      <OutArgument x:TypeArguments="x:Object">[dr_Report("Field")]</OutArgument>
+                                                    </ui:AssignOperation.To>
+                                                    <ui:AssignOperation.Value>
+                                                      <InArgument x:TypeArguments="x:String">[FieldName]</InArgument>
+                                                    </ui:AssignOperation.Value>
+                                                  </ui:AssignOperation>
+                                                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_526">
+                                                    <ui:AssignOperation.To>
+                                                      <OutArgument x:TypeArguments="x:Object">[dr_Report("Field Name")]</OutArgument>
+                                                    </ui:AssignOperation.To>
+                                                    <ui:AssignOperation.Value>
+                                                      <InArgument x:TypeArguments="x:Object">[CurrentRow("TaskName").ToString]</InArgument>
+                                                    </ui:AssignOperation.Value>
+                                                  </ui:AssignOperation>
+                                                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_527">
+                                                    <ui:AssignOperation.To>
+                                                      <OutArgument x:TypeArguments="x:Object">[dr_Report("Source")]</OutArgument>
+                                                    </ui:AssignOperation.To>
+                                                    <ui:AssignOperation.Value>
+                                                      <InArgument x:TypeArguments="x:Object">["POC"]</InArgument>
+                                                    </ui:AssignOperation.Value>
+                                                  </ui:AssignOperation>
+                                                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_528">
+                                                    <ui:AssignOperation.To>
+                                                      <OutArgument x:TypeArguments="x:Object">[dr_Report("Criteria")]</OutArgument>
+                                                    </ui:AssignOperation.To>
+                                                    <ui:AssignOperation.Value>
+                                                      <InArgument x:TypeArguments="x:Object">["ADL Score"]</InArgument>
+                                                    </ui:AssignOperation.Value>
+                                                  </ui:AssignOperation>
+                                                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_529">
+                                                    <ui:AssignOperation.To>
+                                                      <OutArgument x:TypeArguments="x:Object">[dr_Report("Previous MDS Value")]</OutArgument>
+                                                    </ui:AssignOperation.To>
+                                                    <ui:AssignOperation.Value>
+                                                      <InArgument x:TypeArguments="x:Object">["NA"]</InArgument>
+                                                    </ui:AssignOperation.Value>
+                                                  </ui:AssignOperation>
+                                                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_530">
+                                                    <ui:AssignOperation.To>
+                                                      <OutArgument x:TypeArguments="x:Object">[dr_Report("Match?")]</OutArgument>
+                                                    </ui:AssignOperation.To>
+                                                    <ui:AssignOperation.Value>
+                                                      <InArgument x:TypeArguments="x:Object">["NA"]</InArgument>
+                                                    </ui:AssignOperation.Value>
+                                                  </ui:AssignOperation>
+                                                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_531">
+                                                    <ui:AssignOperation.To>
+                                                      <OutArgument x:TypeArguments="x:Object">[dr_Report("Comment")]</OutArgument>
+                                                    </ui:AssignOperation.To>
+                                                    <ui:AssignOperation.Value>
+                                                      <InArgument x:TypeArguments="x:Object">[""]</InArgument>
+                                                    </ui:AssignOperation.Value>
+                                                  </ui:AssignOperation>
+                                                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_532">
+                                                    <ui:AssignOperation.To>
+                                                      <OutArgument x:TypeArguments="x:Object">[dr_Report("Current MDS Value")]</OutArgument>
+                                                    </ui:AssignOperation.To>
+                                                    <ui:AssignOperation.Value>
+                                                      <InArgument x:TypeArguments="x:Object">["NA"]</InArgument>
+                                                    </ui:AssignOperation.Value>
+                                                  </ui:AssignOperation>
+                                                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_533">
+                                                    <ui:AssignOperation.To>
+                                                      <OutArgument x:TypeArguments="x:Object">[dr_Report("Comment")]</OutArgument>
+                                                    </ui:AssignOperation.To>
+                                                    <ui:AssignOperation.Value>
+                                                      <InArgument x:TypeArguments="x:Object">["ADL data not found in Look back period."]</InArgument>
+                                                    </ui:AssignOperation.Value>
+                                                  </ui:AssignOperation>
+                                                </scg:List>
+                                              </ui:MultipleAssign.AssignOperations>
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                            </ui:MultipleAssign>
+                                          </Sequence>
+                                        </If.Else>
+                                      </If>
+                                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="991,91" sap2010:WorkflowViewState.IdRef="LogMessage_82" Level="Info" Message="[&quot;Complet Out_DTADLScore Row ADD&quot;]" />
+                                      <ui:AddDataRow ArrayRow="{x:Null}" DataRow="[dr_Report]" DataTable="[Dt_Section_G_Report]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="991,185" sap2010:WorkflowViewState.IdRef="AddDataRow_100">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                      </ui:AddDataRow>
+                                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="991,91" sap2010:WorkflowViewState.IdRef="LogMessage_83" Level="Info" Message="[&quot;Complet Dr_Report to Dt_Section_G_Report&quot;]" />
+                                      <If Condition="[In_AssesmentExists]" DisplayName="If - Temporal" sap:VirtualizedContainerService.HintSize="991,792" sap2010:WorkflowViewState.IdRef="If_154">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <If.Then>
+                                          <Sequence sap:VirtualizedContainerService.HintSize="476,605" sap2010:WorkflowViewState.IdRef="Sequence_633">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <ui:FilterDataTable DataTable="[In_DTAssessment]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="434,160" sap2010:WorkflowViewState.IdRef="FilterDataTable_42" OutputDataTable="[In_DTAssessment]" SelectColumnsMode="Keep">
+                                              <ui:FilterDataTable.Filters>
+                                                <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
+                                                  <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
+                                                    <ui:FilterOperationArgument.Column>
+                                                      <InArgument x:TypeArguments="x:String">["Section"]</InArgument>
+                                                    </ui:FilterOperationArgument.Column>
+                                                    <ui:FilterOperationArgument.Operand>
+                                                      <InArgument x:TypeArguments="x:String">["G"]</InArgument>
+                                                    </ui:FilterOperationArgument.Operand>
+                                                  </ui:FilterOperationArgument>
+                                                </scg:List>
+                                              </ui:FilterDataTable.Filters>
+                                              <ui:FilterDataTable.SelectColumns>
+                                                <scg:List x:TypeArguments="InArgument" Capacity="4">
+                                                  <x:Null />
+                                                </scg:List>
+                                              </ui:FilterDataTable.SelectColumns>
+                                            </ui:FilterDataTable>
+                                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,91" sap2010:WorkflowViewState.IdRef="LogMessage_84" Level="Info" Message="[&quot;Complet Filter In_AssesmentExists&quot;]" />
+                                            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[In_DTAssessment]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="434,51" sap2010:WorkflowViewState.IdRef="ForEachRow_25">
+                                              <ui:ForEachRow.Body>
+                                                <ActivityAction x:TypeArguments="sd:DataRow">
+                                                  <ActivityAction.Argument>
+                                                    <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+                                                  </ActivityAction.Argument>
+                                                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="473,796" sap2010:WorkflowViewState.IdRef="Sequence_632">
+                                                    <Sequence.Variables>
+                                                      <Variable x:TypeArguments="sd:DataRow" Name="ReportDTRows" />
+                                                    </Sequence.Variables>
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                    <Assign sap:VirtualizedContainerService.HintSize="431,60" sap2010:WorkflowViewState.IdRef="Assign_394">
+                                                      <Assign.To>
+                                                        <OutArgument x:TypeArguments="sd:DataRow">[ReportDTRows]</OutArgument>
+                                                      </Assign.To>
+                                                      <Assign.Value>
+                                                        <InArgument x:TypeArguments="sd:DataRow">[Dt_Section_G_Report.NewRow]</InArgument>
+                                                      </Assign.Value>
+                                                    </Assign>
+                                                    <ui:MultipleAssign sap2010:Annotation.AnnotationText="Assign data to the  output report" DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="431,379" sap2010:WorkflowViewState.IdRef="MultipleAssign_69">
+                                                      <ui:MultipleAssign.AssignOperations>
+                                                        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
+                                                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_549">
+                                                            <ui:AssignOperation.To>
+                                                              <OutArgument x:TypeArguments="x:Object">[ReportDTRows("Extraction DateTime")]</OutArgument>
+                                                            </ui:AssignOperation.To>
+                                                            <ui:AssignOperation.Value>
+                                                              <InArgument x:TypeArguments="x:Object">[Now.ToString("MM-dd-yyyy hh:mm:ss")]</InArgument>
+                                                            </ui:AssignOperation.Value>
+                                                          </ui:AssignOperation>
+                                                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_550">
+                                                            <ui:AssignOperation.To>
+                                                              <OutArgument x:TypeArguments="x:Object">[ReportDTRows("Field")]</OutArgument>
+                                                            </ui:AssignOperation.To>
+                                                            <ui:AssignOperation.Value>
+                                                              <InArgument x:TypeArguments="x:Object">[CurrentRow("Field").ToString]</InArgument>
+                                                            </ui:AssignOperation.Value>
+                                                          </ui:AssignOperation>
+                                                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_551">
+                                                            <ui:AssignOperation.To>
+                                                              <OutArgument x:TypeArguments="x:Object">[ReportDTRows("Field Name")]</OutArgument>
+                                                            </ui:AssignOperation.To>
+                                                            <ui:AssignOperation.Value>
+                                                              <InArgument x:TypeArguments="x:Object">[CurrentRow("Field Name").ToString]</InArgument>
+                                                            </ui:AssignOperation.Value>
+                                                          </ui:AssignOperation>
+                                                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_552">
+                                                            <ui:AssignOperation.To>
+                                                              <OutArgument x:TypeArguments="x:Object">[ReportDTRows("Criteria")]</OutArgument>
+                                                            </ui:AssignOperation.To>
+                                                            <ui:AssignOperation.Value>
+                                                              <InArgument x:TypeArguments="x:Object">["Simple Text"]</InArgument>
+                                                            </ui:AssignOperation.Value>
+                                                          </ui:AssignOperation>
+                                                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_553">
+                                                            <ui:AssignOperation.To>
+                                                              <OutArgument x:TypeArguments="x:Object">[ReportDTRows("Source")]</OutArgument>
+                                                            </ui:AssignOperation.To>
+                                                            <ui:AssignOperation.Value>
+                                                              <InArgument x:TypeArguments="x:Object">["Assesment"]</InArgument>
+                                                            </ui:AssignOperation.Value>
+                                                          </ui:AssignOperation>
+                                                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_554">
+                                                            <ui:AssignOperation.To>
+                                                              <OutArgument x:TypeArguments="x:Object">[ReportDTRows("Current MDS Value")]</OutArgument>
+                                                            </ui:AssignOperation.To>
+                                                            <ui:AssignOperation.Value>
+                                                              <InArgument x:TypeArguments="x:Object">[CurrentRow("Robot Finding").ToString]</InArgument>
+                                                            </ui:AssignOperation.Value>
+                                                          </ui:AssignOperation>
+                                                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_555">
+                                                            <ui:AssignOperation.To>
+                                                              <OutArgument x:TypeArguments="x:Object">[ReportDTRows("Previous MDS Value")]</OutArgument>
+                                                            </ui:AssignOperation.To>
+                                                            <ui:AssignOperation.Value>
+                                                              <InArgument x:TypeArguments="x:Object">["NA"]</InArgument>
+                                                            </ui:AssignOperation.Value>
+                                                          </ui:AssignOperation>
+                                                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_556">
+                                                            <ui:AssignOperation.To>
+                                                              <OutArgument x:TypeArguments="x:Object">[ReportDTRows("Match?")]</OutArgument>
+                                                            </ui:AssignOperation.To>
+                                                            <ui:AssignOperation.Value>
+                                                              <InArgument x:TypeArguments="x:Object">["NA"]</InArgument>
+                                                            </ui:AssignOperation.Value>
+                                                          </ui:AssignOperation>
+                                                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_557">
+                                                            <ui:AssignOperation.To>
+                                                              <OutArgument x:TypeArguments="x:Object">[ReportDTRows("Comment")]</OutArgument>
+                                                            </ui:AssignOperation.To>
+                                                            <ui:AssignOperation.Value>
+                                                              <InArgument x:TypeArguments="x:Object">[""]</InArgument>
+                                                            </ui:AssignOperation.Value>
+                                                          </ui:AssignOperation>
+                                                        </scg:List>
+                                                      </ui:MultipleAssign.AssignOperations>
+                                                      <sap:WorkflowViewStateService.ViewState>
+                                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                                        </scg:Dictionary>
+                                                      </sap:WorkflowViewStateService.ViewState>
+                                                    </ui:MultipleAssign>
+                                                    <ui:AddDataRow ArrayRow="{x:Null}" DataRow="[ReportDTRows]" DataTable="[Dt_Section_G_Report]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="431,185" sap2010:WorkflowViewState.IdRef="AddDataRow_102">
+                                                      <sap:WorkflowViewStateService.ViewState>
+                                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                        </scg:Dictionary>
+                                                      </sap:WorkflowViewStateService.ViewState>
+                                                    </ui:AddDataRow>
+                                                  </Sequence>
+                                                </ActivityAction>
+                                              </ui:ForEachRow.Body>
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                  <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                            </ui:ForEachRow>
+                                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,91" sap2010:WorkflowViewState.IdRef="LogMessage_85" Level="Info" Message="[&quot;Complet In_AssesmentExists&quot;]" />
+                                          </Sequence>
+                                        </If.Then>
+                                        <If.Else>
+                                          <Sequence sap2010:WorkflowViewState.IdRef="Sequence_634">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                          </Sequence>
+                                        </If.Else>
+                                      </If>
+                                    </Sequence>
+                                  </If.Then>
+                                  <If.Else>
+                                    <Sequence sap:VirtualizedContainerService.HintSize="669,3104" sap2010:WorkflowViewState.IdRef="Sequence_638">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="627,91" sap2010:WorkflowViewState.IdRef="LogMessage_86" Level="Warn" Message="[&quot;DT ADL_SCORE dont have Info&quot;]" />
+                                      <Sequence sap:VirtualizedContainerService.HintSize="627,2881" sap2010:WorkflowViewState.IdRef="Sequence_642">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <Assign sap:VirtualizedContainerService.HintSize="585,60" sap2010:WorkflowViewState.IdRef="Assign_395">
+                                          <Assign.To>
+                                            <OutArgument x:TypeArguments="sd:DataRow">[dr_Report]</OutArgument>
+                                          </Assign.To>
+                                          <Assign.Value>
+                                            <InArgument x:TypeArguments="sd:DataRow">[Dt_Section_G_Report.NewRow]</InArgument>
+                                          </Assign.Value>
+                                        </Assign>
+                                        <Assign sap:VirtualizedContainerService.HintSize="585,60" sap2010:WorkflowViewState.IdRef="Assign_396">
+                                          <Assign.To>
+                                            <OutArgument x:TypeArguments="x:String">[FieldName]</OutArgument>
+                                          </Assign.To>
+                                          <Assign.Value>
+                                            <InArgument x:TypeArguments="x:String">[CurrentRow("Field").ToString]</InArgument>
+                                          </Assign.Value>
+                                        </Assign>
+                                        <ui:MultipleAssign sap2010:Annotation.AnnotationText="Mutiple Assign for ADL. " DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="585,410" sap2010:WorkflowViewState.IdRef="MultipleAssign_70">
+                                          <ui:MultipleAssign.AssignOperations>
+                                            <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
+                                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_558">
+                                                <ui:AssignOperation.To>
+                                                  <OutArgument x:TypeArguments="x:Object">[dr_Report("Extraction DateTime")]</OutArgument>
+                                                </ui:AssignOperation.To>
+                                                <ui:AssignOperation.Value>
+                                                  <InArgument x:TypeArguments="x:String">[System.DateTime.Now.ToString(“MM-dd-yyyy hh:mm:ss”)]</InArgument>
+                                                </ui:AssignOperation.Value>
+                                              </ui:AssignOperation>
+                                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_559">
+                                                <ui:AssignOperation.To>
+                                                  <OutArgument x:TypeArguments="x:Object">[dr_Report("Field")]</OutArgument>
+                                                </ui:AssignOperation.To>
+                                                <ui:AssignOperation.Value>
+                                                  <InArgument x:TypeArguments="x:String">[FieldName]</InArgument>
+                                                </ui:AssignOperation.Value>
+                                              </ui:AssignOperation>
+                                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_560">
+                                                <ui:AssignOperation.To>
+                                                  <OutArgument x:TypeArguments="x:Object">[dr_Report("Field Name")]</OutArgument>
+                                                </ui:AssignOperation.To>
+                                                <ui:AssignOperation.Value>
+                                                  <InArgument x:TypeArguments="x:Object">[CurrentRow("TaskName").ToString]</InArgument>
+                                                </ui:AssignOperation.Value>
+                                              </ui:AssignOperation>
+                                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_561">
+                                                <ui:AssignOperation.To>
+                                                  <OutArgument x:TypeArguments="x:Object">[dr_Report("Source")]</OutArgument>
+                                                </ui:AssignOperation.To>
+                                                <ui:AssignOperation.Value>
+                                                  <InArgument x:TypeArguments="x:Object">["POC"]</InArgument>
+                                                </ui:AssignOperation.Value>
+                                              </ui:AssignOperation>
+                                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_562">
+                                                <ui:AssignOperation.To>
+                                                  <OutArgument x:TypeArguments="x:Object">[dr_Report("Criteria")]</OutArgument>
+                                                </ui:AssignOperation.To>
+                                                <ui:AssignOperation.Value>
+                                                  <InArgument x:TypeArguments="x:Object">["ADL Score"]</InArgument>
+                                                </ui:AssignOperation.Value>
+                                              </ui:AssignOperation>
+                                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_563">
+                                                <ui:AssignOperation.To>
+                                                  <OutArgument x:TypeArguments="x:Object">[dr_Report("Previous MDS Value")]</OutArgument>
+                                                </ui:AssignOperation.To>
+                                                <ui:AssignOperation.Value>
+                                                  <InArgument x:TypeArguments="x:Object">["NA"]</InArgument>
+                                                </ui:AssignOperation.Value>
+                                              </ui:AssignOperation>
+                                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_564">
+                                                <ui:AssignOperation.To>
+                                                  <OutArgument x:TypeArguments="x:Object">[dr_Report("Match?")]</OutArgument>
+                                                </ui:AssignOperation.To>
+                                                <ui:AssignOperation.Value>
+                                                  <InArgument x:TypeArguments="x:Object">["NA"]</InArgument>
+                                                </ui:AssignOperation.Value>
+                                              </ui:AssignOperation>
+                                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_565">
+                                                <ui:AssignOperation.To>
+                                                  <OutArgument x:TypeArguments="x:Object">[dr_Report("Comment")]</OutArgument>
+                                                </ui:AssignOperation.To>
+                                                <ui:AssignOperation.Value>
+                                                  <InArgument x:TypeArguments="x:Object">[""]</InArgument>
+                                                </ui:AssignOperation.Value>
+                                              </ui:AssignOperation>
+                                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_566">
+                                                <ui:AssignOperation.To>
+                                                  <OutArgument x:TypeArguments="x:Object">[dr_Report("Current MDS Value")]</OutArgument>
+                                                </ui:AssignOperation.To>
+                                                <ui:AssignOperation.Value>
+                                                  <InArgument x:TypeArguments="x:Object">["NA"]</InArgument>
+                                                </ui:AssignOperation.Value>
+                                              </ui:AssignOperation>
+                                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_567">
+                                                <ui:AssignOperation.To>
+                                                  <OutArgument x:TypeArguments="x:Object">[dr_Report("Comment")]</OutArgument>
+                                                </ui:AssignOperation.To>
+                                                <ui:AssignOperation.Value>
+                                                  <InArgument x:TypeArguments="x:Object">["ADL data not found in Look back period."]</InArgument>
+                                                </ui:AssignOperation.Value>
+                                              </ui:AssignOperation>
+                                            </scg:List>
+                                          </ui:MultipleAssign.AssignOperations>
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                        </ui:MultipleAssign>
+                                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="585,91" sap2010:WorkflowViewState.IdRef="LogMessage_90" Level="Info" Message="[&quot;Fill Report in case of ADL data not Found&quot;]" />
+                                        <ui:AddDataRow ArrayRow="{x:Null}" DataRow="[dr_Report]" DataTable="[Dt_Section_G_Report]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="585,185" sap2010:WorkflowViewState.IdRef="AddDataRow_103">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                        </ui:AddDataRow>
+                                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="585,91" sap2010:WorkflowViewState.IdRef="LogMessage_91" Level="Trace" Message="[&quot;Add DR to DT Section G Report&quot;]" />
+                                        <If Condition="[In_AssesmentExists]" DisplayName="If - Temporal" sap:VirtualizedContainerService.HintSize="585,1652" sap2010:WorkflowViewState.IdRef="If_157">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <If.Then>
+                                            <Sequence sap:VirtualizedContainerService.HintSize="549,1465" sap2010:WorkflowViewState.IdRef="Sequence_640">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                              <ui:FilterDataTable DataTable="[In_DTAssessment]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="507,160" sap2010:WorkflowViewState.IdRef="FilterDataTable_43" OutputDataTable="[In_DTAssessment]" SelectColumnsMode="Keep">
+                                                <ui:FilterDataTable.Filters>
+                                                  <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
+                                                    <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
+                                                      <ui:FilterOperationArgument.Column>
+                                                        <InArgument x:TypeArguments="x:String">["Section"]</InArgument>
+                                                      </ui:FilterOperationArgument.Column>
+                                                      <ui:FilterOperationArgument.Operand>
+                                                        <InArgument x:TypeArguments="x:String">["G"]</InArgument>
+                                                      </ui:FilterOperationArgument.Operand>
+                                                    </ui:FilterOperationArgument>
+                                                  </scg:List>
+                                                </ui:FilterDataTable.Filters>
+                                                <ui:FilterDataTable.SelectColumns>
+                                                  <scg:List x:TypeArguments="InArgument" Capacity="4">
+                                                    <x:Null />
+                                                  </scg:List>
+                                                </ui:FilterDataTable.SelectColumns>
+                                              </ui:FilterDataTable>
+                                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="507,91" sap2010:WorkflowViewState.IdRef="LogMessage_92" Level="Info" Message="[&quot;Complet Filter In_AssesmentExists&quot;]" />
+                                              <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[In_DTAssessment]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="507,911" sap2010:WorkflowViewState.IdRef="ForEachRow_26">
+                                                <ui:ForEachRow.Body>
+                                                  <ActivityAction x:TypeArguments="sd:DataRow">
+                                                    <ActivityAction.Argument>
+                                                      <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+                                                    </ActivityAction.Argument>
+                                                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="473,796" sap2010:WorkflowViewState.IdRef="Sequence_639">
+                                                      <Sequence.Variables>
+                                                        <Variable x:TypeArguments="sd:DataRow" Name="ReportDTRows" />
+                                                      </Sequence.Variables>
+                                                      <sap:WorkflowViewStateService.ViewState>
+                                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                        </scg:Dictionary>
+                                                      </sap:WorkflowViewStateService.ViewState>
+                                                      <Assign sap:VirtualizedContainerService.HintSize="431,60" sap2010:WorkflowViewState.IdRef="Assign_397">
+                                                        <Assign.To>
+                                                          <OutArgument x:TypeArguments="sd:DataRow">[ReportDTRows]</OutArgument>
+                                                        </Assign.To>
+                                                        <Assign.Value>
+                                                          <InArgument x:TypeArguments="sd:DataRow">[Dt_Section_G_Report.NewRow]</InArgument>
+                                                        </Assign.Value>
+                                                      </Assign>
+                                                      <ui:MultipleAssign sap2010:Annotation.AnnotationText="Assign data to the  output report" DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="431,379" sap2010:WorkflowViewState.IdRef="MultipleAssign_71">
+                                                        <ui:MultipleAssign.AssignOperations>
+                                                          <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
+                                                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_568">
+                                                              <ui:AssignOperation.To>
+                                                                <OutArgument x:TypeArguments="x:Object">[ReportDTRows("Extraction DateTime")]</OutArgument>
+                                                              </ui:AssignOperation.To>
+                                                              <ui:AssignOperation.Value>
+                                                                <InArgument x:TypeArguments="x:Object">[Now.ToString("MM-dd-yyyy hh:mm:ss")]</InArgument>
+                                                              </ui:AssignOperation.Value>
+                                                            </ui:AssignOperation>
+                                                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_569">
+                                                              <ui:AssignOperation.To>
+                                                                <OutArgument x:TypeArguments="x:Object">[ReportDTRows("Field")]</OutArgument>
+                                                              </ui:AssignOperation.To>
+                                                              <ui:AssignOperation.Value>
+                                                                <InArgument x:TypeArguments="x:Object">[CurrentRow("Field").ToString]</InArgument>
+                                                              </ui:AssignOperation.Value>
+                                                            </ui:AssignOperation>
+                                                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_570">
+                                                              <ui:AssignOperation.To>
+                                                                <OutArgument x:TypeArguments="x:Object">[ReportDTRows("Field Name")]</OutArgument>
+                                                              </ui:AssignOperation.To>
+                                                              <ui:AssignOperation.Value>
+                                                                <InArgument x:TypeArguments="x:Object">[CurrentRow("Field Name").ToString]</InArgument>
+                                                              </ui:AssignOperation.Value>
+                                                            </ui:AssignOperation>
+                                                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_571">
+                                                              <ui:AssignOperation.To>
+                                                                <OutArgument x:TypeArguments="x:Object">[ReportDTRows("Criteria")]</OutArgument>
+                                                              </ui:AssignOperation.To>
+                                                              <ui:AssignOperation.Value>
+                                                                <InArgument x:TypeArguments="x:Object">["Simple Text"]</InArgument>
+                                                              </ui:AssignOperation.Value>
+                                                            </ui:AssignOperation>
+                                                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_572">
+                                                              <ui:AssignOperation.To>
+                                                                <OutArgument x:TypeArguments="x:Object">[ReportDTRows("Source")]</OutArgument>
+                                                              </ui:AssignOperation.To>
+                                                              <ui:AssignOperation.Value>
+                                                                <InArgument x:TypeArguments="x:Object">["Assesment"]</InArgument>
+                                                              </ui:AssignOperation.Value>
+                                                            </ui:AssignOperation>
+                                                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_573">
+                                                              <ui:AssignOperation.To>
+                                                                <OutArgument x:TypeArguments="x:Object">[ReportDTRows("Current MDS Value")]</OutArgument>
+                                                              </ui:AssignOperation.To>
+                                                              <ui:AssignOperation.Value>
+                                                                <InArgument x:TypeArguments="x:Object">[CurrentRow("Robot Finding").ToString]</InArgument>
+                                                              </ui:AssignOperation.Value>
+                                                            </ui:AssignOperation>
+                                                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_574">
+                                                              <ui:AssignOperation.To>
+                                                                <OutArgument x:TypeArguments="x:Object">[ReportDTRows("Previous MDS Value")]</OutArgument>
+                                                              </ui:AssignOperation.To>
+                                                              <ui:AssignOperation.Value>
+                                                                <InArgument x:TypeArguments="x:Object">["NA"]</InArgument>
+                                                              </ui:AssignOperation.Value>
+                                                            </ui:AssignOperation>
+                                                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_575">
+                                                              <ui:AssignOperation.To>
+                                                                <OutArgument x:TypeArguments="x:Object">[ReportDTRows("Match?")]</OutArgument>
+                                                              </ui:AssignOperation.To>
+                                                              <ui:AssignOperation.Value>
+                                                                <InArgument x:TypeArguments="x:Object">["NA"]</InArgument>
+                                                              </ui:AssignOperation.Value>
+                                                            </ui:AssignOperation>
+                                                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_576">
+                                                              <ui:AssignOperation.To>
+                                                                <OutArgument x:TypeArguments="x:Object">[ReportDTRows("Comment")]</OutArgument>
+                                                              </ui:AssignOperation.To>
+                                                              <ui:AssignOperation.Value>
+                                                                <InArgument x:TypeArguments="x:Object">[""]</InArgument>
+                                                              </ui:AssignOperation.Value>
+                                                            </ui:AssignOperation>
+                                                          </scg:List>
+                                                        </ui:MultipleAssign.AssignOperations>
+                                                        <sap:WorkflowViewStateService.ViewState>
+                                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                                          </scg:Dictionary>
+                                                        </sap:WorkflowViewStateService.ViewState>
+                                                      </ui:MultipleAssign>
+                                                      <ui:AddDataRow ArrayRow="{x:Null}" DataRow="[ReportDTRows]" DataTable="[Dt_Section_G_Report]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="431,185" sap2010:WorkflowViewState.IdRef="AddDataRow_104">
+                                                        <sap:WorkflowViewStateService.ViewState>
+                                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                          </scg:Dictionary>
+                                                        </sap:WorkflowViewStateService.ViewState>
+                                                      </ui:AddDataRow>
+                                                    </Sequence>
+                                                  </ActivityAction>
+                                                </ui:ForEachRow.Body>
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                              </ui:ForEachRow>
+                                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="507,91" sap2010:WorkflowViewState.IdRef="LogMessage_93" Level="Info" Message="[&quot;Complet In_AssesmentExists&quot;]" />
+                                            </Sequence>
+                                          </If.Then>
+                                          <If.Else>
+                                            <Sequence sap2010:WorkflowViewState.IdRef="Sequence_641">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                            </Sequence>
+                                          </If.Else>
+                                        </If>
+                                      </Sequence>
+                                    </Sequence>
+                                  </If.Else>
+                                </If>
+                              </Sequence>
+                            </ActivityAction>
+                          </ui:ForEachRow.Body>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:ForEachRow>
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <Sequence sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="Sequence_630">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </Sequence>
+                    </If.Else>
+                  </If>
+                </Sequence>
+              </If.Else>
+            </If>
+          </Sequence>
+          <g1:GoBackFromReports In_Browser="{x:Null}" sap:VirtualizedContainerService.HintSize="2406,22" sap2010:WorkflowViewState.IdRef="GoBackFromReports_1" In_AssessmentCode="[In_AssessmentCode]" In_LookbackEndDate="[In_LookbackEndDate]" In_ResidentNumber="[In_Resident_Number]" />
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="2113,91" sap2010:WorkflowViewState.IdRef="LogMessage_70" Level="Warn" Message="[&quot;Go Bac From Reports&quot;]" />
+          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="2113,51" sap2010:WorkflowViewState.IdRef="CommentOut_122">
+            <ui:CommentOut.Body>
+              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,183" sap2010:WorkflowViewState.IdRef="Sequence_635">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_67" Level="Trace" Message="[&quot;Here&quot;]" />
+              </Sequence>
+            </ui:CommentOut.Body>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:CommentOut>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="2113,91" sap2010:WorkflowViewState.IdRef="LogMessage_54" Level="Info" Message="[&quot;On MDS Section Tab&quot;]" />
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="2113,91" sap2010:WorkflowViewState.IdRef="LogMessage_47" Level="Info" Message="[&quot;Section G Completed..&quot;]" />
+        </Sequence>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="2159,135" sap2010:WorkflowViewState.IdRef="Catch`1_23">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <Sequence sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_551">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="436,91" sap2010:WorkflowViewState.IdRef="LogMessage_48" Level="Error" Message="[&quot;Error in Section G : &quot;+&quot; &quot;+exception.Message+&quot; &quot;+exception.Source]" />
+              <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{In_ResidentName,&quot;G&quot;,exception.Message}]" DataTable="[Out_ExceptionDT]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="436,185" sap2010:WorkflowViewState.IdRef="AddDataRow_88" />
+              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="True" DisplayName="Invoke TakeScreenshot workflow" sap:VirtualizedContainerService.HintSize="436,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Framework\\TakeScreenshot.xaml">
+                <ui:InvokeWorkflowFile.Arguments>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_Folder">[in_Config("ExScreenshotsFolderPath").ToString]</InArgument>
+                  <InOutArgument x:TypeArguments="x:String" x:Key="io_FilePath" />
+                </ui:InvokeWorkflowFile.Arguments>
+              </ui:InvokeWorkflowFile>
+              <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436,302" sap2010:WorkflowViewState.IdRef="CommentOut_118">
+                <ui:CommentOut.Body>
+                  <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,224" sap2010:WorkflowViewState.IdRef="Sequence_612">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:KillProcess AppliesTo="{x:Null}" Process="{x:Null}" ContinueOnError="True" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="334,132" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="msedge" />
+                  </Sequence>
+                </ui:CommentOut.Body>
+              </ui:CommentOut>
+              <m:MDS_Exception sap:VirtualizedContainerService.HintSize="436,22" sap2010:WorkflowViewState.IdRef="MDS_Exception_1" In_AssessmentCode="[In_AssessmentCode]" In_Browser="[In_Browser]" In_Resident_Number="[In_Resident_Number]" />
+              <Rethrow sap:VirtualizedContainerService.HintSize="436,22" sap2010:WorkflowViewState.IdRef="Rethrow_1" />
+            </Sequence>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+      <TryCatch.Finally>
+        <Sequence sap:VirtualizedContainerService.HintSize="526,1678" sap2010:WorkflowViewState.IdRef="Sequence_590">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="x:Boolean" Name="boolReportName" />
+          </Sequence.Variables>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <s1:Sort_Output_Datatable Datatable="[Dt_Section_G_Report]" DisplayName="Sort Output Datatable" sap:VirtualizedContainerService.HintSize="484,22" sap2010:WorkflowViewState.IdRef="Sort_Output_Datatable_2" MDS_Required="False" />
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484,91" sap2010:WorkflowViewState.IdRef="LogMessage_73" Level="Trace" Message="[&quot;Sort Finally&quot;]" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Previous MDS Value" DataTable="[Dt_Section_G_Report]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="484,185" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_1" />
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484,91" sap2010:WorkflowViewState.IdRef="LogMessage_74" Level="Trace" Message="[&quot;Remove Previous MDS Value Complet&quot;]" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Match?" DataTable="[Dt_Section_G_Report]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="484,185" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_2" />
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484,91" sap2010:WorkflowViewState.IdRef="LogMessage_75" Level="Trace" Message="[&quot;Remove Match? Complet&quot;]" />
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484,91" sap2010:WorkflowViewState.IdRef="LogMessage_76" Level="Trace" Message="[&quot;Star Report Finally&quot;]" />
+          <ui:FileExistsX DisplayName="File Exists" Exists="[boolReportName]" sap:VirtualizedContainerService.HintSize="484,132" sap2010:WorkflowViewState.IdRef="FileExistsX_2" Path="[In_ReportName]" />
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484,91" sap2010:WorkflowViewState.IdRef="LogMessage_78" Level="Warn" Message="[&quot;File Exists: &quot;+In_ReportName+&quot; - &quot;+boolReportName.ToString]" />
+          <If Condition="[boolReportName]" DisplayName="If File Exists Report Name" sap:VirtualizedContainerService.HintSize="484,247" sap2010:WorkflowViewState.IdRef="If_155">
+            <If.Then>
+              <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_9" InstanceCachePeriod="3000" Visible="False" WorkbookPath="[In_ReportName]">
+                <ui:ExcelApplicationScope.Body>
+                  <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+                    </ActivityAction.Argument>
+                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,945" sap2010:WorkflowViewState.IdRef="Sequence_553">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:ExcelWriteCell Cell="A1" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_11" SheetName="Section G" Text="[&quot;Patient Name:&quot;+ ResidentName]" />
+                      <ui:ExcelWriteCell Cell="A2" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_12" SheetName="Section G" Text="[&quot;Assessment Reference Date:&quot; + AssessmentRefDate]" />
+                      <ui:ExcelWriteCell Cell="A3" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_13" SheetName="Section G" Text="[&quot;Medicare Number:&quot; + In_MedicareNumber.Trim]" />
+                      <ui:ExcelWriteCell Cell="A4" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_14" SheetName="Section G" Text="[&quot;Type:&quot; + &quot; &quot; + In_AssessmentCode]" />
+                      <ui:ExcelWriteCell Cell="A5" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_15" SheetName="Section G" Text="[&quot;Section Status:&quot; + Status_Color]" />
+                      <ui:ExcelWriteRange AddHeaders="True" DataTable="[Dt_Section_G_Report]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_41" SheetName="Section G" StartingCell="A6" />
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_77" Level="Trace" Message="[&quot;End Report Finally&quot;]" />
+                    </Sequence>
+                  </ActivityAction>
+                </ui:ExcelApplicationScope.Body>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:ExcelApplicationScope>
+            </If.Then>
+          </If>
+        </Sequence>
+      </TryCatch.Finally>
+    </TryCatch>
+  </Sequence>
+</Activity>

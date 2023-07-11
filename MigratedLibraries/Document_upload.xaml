@@ -1,0 +1,525 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Document_upload" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="In_ResidentName" Type="InArgument(x:String)" />
+    <x:Property Name="In_FilePath" Type="InArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1794,4486</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Document_upload_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="34">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Reflection</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="34">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Python</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Document_upload" sap:VirtualizedContainerService.HintSize="991,4421" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="949,472" sap2010:WorkflowViewState.IdRef="CommentOut_5">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities - Test Only" sap:VirtualizedContainerService.HintSize="473,394" sap2010:WorkflowViewState.IdRef="Sequence_11">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="431,131" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+            <ui:MultipleAssign.AssignOperations>
+              <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[In_FilePath]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">Z:\UAT\Robot Output Reports\MSD_Armacost, Arthur (FHS4506)_12132022_NQ_12142022_0920.xlsx</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[In_ResidentName]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">["MSD_"+Split(In_FilePath,"MSD_")(1).Replace(".xlsx","")]</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+              </scg:List>
+            </ui:MultipleAssign.AssignOperations>
+          </ui:MultipleAssign>
+          <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="431,131" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+            <ui:MultipleAssign.AssignOperations>
+              <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[In_FilePath]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">Z:\UAT\Robot Output Reports\MSD_Armacost, Arthur (FHS4506)_12132022_NQ_12142022_0920.xlsx</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[In_ResidentName]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">MSD_Leible, Matthew (KEN406588)_05312023_NC_06062023_0658</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+              </scg:List>
+            </ui:MultipleAssign.AssignOperations>
+          </ui:MultipleAssign>
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Edge: Client Uploaded Files" sap:VirtualizedContainerService.HintSize="949,3817" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="d0c2335b-ec4c-4552-a689-6e7c0eaa4fed" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Uploading the document" sap:VirtualizedContainerService.HintSize="915,3561" sap2010:WorkflowViewState.IdRef="Sequence_8">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NClick ClickType="Single" DisplayName="Click - Documents" sap:VirtualizedContainerService.HintSize="873,156" sap2010:WorkflowViewState.IdRef="NClick_1" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="d0c2335b-ec4c-4552-a689-6e7c0eaa4fed" Version="V1">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://www28.pointclickcare.com/upload/filesdisplay.xhtml?ESOLclientid=8113811" DesignTimeRectangle="1005, 411, 87, 22" DesignTimeScaleFactor="1.1000000238418579" ElementType="Text" FriendlyName="'Documents'" FullSelectorArgument="&lt;html app='msedge.exe' title='*' /&gt;&lt;webctrl aaname='Documents' tableRow='2' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname='Documents' type='' tag='A' class='' check:innerText='Documents' /&gt;" Guid="6b8526ae-0e2d-4886-a08e-2c30b1257c43" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFMAAAAYCAYAAACGLcGvAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGaSURBVGhD7ZY/rsIwDMY5atd3oncH5ncExAkYYK1UdalYKiTEEvLHTmM3LU3j5SF/0jckjhP7l1RwMCoxKUxBHZqmMc6/fz/qnUaGClPAClPQClPQClPQRTBPwwN+r1L15ppZ+/98NN2rrpcdMB+mu+CcK+A7gF7H+j4qYVpfbuZpZ5/DMc6FwkCvmznh2sUYXEocn83dxccziXUx19bQhnO9/Do8A3JB9xbm2z6MhykPa6ZfHPQHfaHiPiuuh0ka5zdMYyEfYuQSNsCcNRn2QRChWboPqRdg5uvkY7oPX7tkYZgUHs2BApPY5A0wszE7xhfnYPKvBMY+Buvoa5x6ycJ0iud+tixM3gzJmYOeLAQTXx+TryddZ/PWYWb22gC1HiYBOAc25XAoqYVgZi4zuhRmNJxnld03cTVMXgQd08ZpPo2RPHwVpTDZWnJeEcy1M5a9AybX/DZDYSAsKBdLXym8Kq+xT5opgZnEQXH+A0yMO/k1aT1OrI+ci2Cq160wBa0wBa0wBa0wBa0wBR1hwh8AlYAUppiMeQMxkdhzvthlNgAAAABJRU5ErkJggg==" InformativeScreenshot="0d75b56e1ced63a85a5fdc21ab47a100.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Client Uploaded Files' /&gt;" SearchSteps="Selector" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="26, 126, 187, 22" ElementType="Icon" FriendlyName="'IMG'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='1' tag='IMG' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='IMG' class='' aaname='Point Click Care logo' /&gt;" ImageBase64="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" SearchSteps="Selector" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NClick ClickType="Single" DisplayName="Click - New Document" sap:VirtualizedContainerService.HintSize="873,156" sap2010:WorkflowViewState.IdRef="NClick_2" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="d0c2335b-ec4c-4552-a689-6e7c0eaa4fed" Version="V1">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://www28.pointclickcare.com/upload/filesdisplay.xhtml?ESOLclientid=8113811" DesignTimeRectangle="27, 475, 119, 23" DesignTimeScaleFactor="1.1000000238418579" ElementType="Button" FriendlyName="'New Document'" FullSelectorArgument="&lt;html app='msedge.exe' title='Client Uploaded Files' /&gt;&lt;webctrl parentname='frmData' tag='TABLE' /&gt;&lt;webctrl tableRow='*' tag='INPUT' aaname='New Document: CTRL-SHIFT-N' parentid='uploadshow' /&gt;" FuzzySelectorArgument="&lt;webctrl parentname='frmData' tag='TABLE' /&gt;&lt;webctrl type='button' tag='INPUT' class='pccButton' aaname='New Document: CTRL-SHIFT-N' check:text='New Document' /&gt;" Guid="27f6213a-13bc-432b-befa-64ac2f5c3bb5" ImageBase64="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" InformativeScreenshot="082447f2722bba6940fb59bf601c64b9.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Client Uploaded Files' /&gt;" SearchSteps="Selector" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="26, 126, 187, 22" ElementType="Icon" FriendlyName="'IMG'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='1' tag='IMG' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='IMG' class='' aaname='Point Click Care logo' /&gt;" ImageBase64="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" SearchSteps="Selector" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+            </uix:NClick>
+            <Delay Duration="00:00:05" sap:VirtualizedContainerService.HintSize="873,22" sap2010:WorkflowViewState.IdRef="Delay_3" />
+            <ui:OnUiElementAppear ContinueOnError="{x:Null}" FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="On Element Appear  - Upload New Document" sap:VirtualizedContainerService.HintSize="873,1337" sap2010:WorkflowViewState.IdRef="OnUiElementAppear_1" RepeatForever="False">
+              <ui:OnUiElementAppear.Body>
+                <Sequence sap:VirtualizedContainerService.HintSize="485,1161" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message - Upload Window" sap:VirtualizedContainerService.HintSize="443,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;The window for loading the Document has opened&quot;]" />
+                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'push button  Maximize'" sap:VirtualizedContainerService.HintSize="443,106" sap2010:WorkflowViewState.IdRef="Click_6" KeyModifiers="None" MouseButton="BTN_LEFT">
+                    <ui:Click.CursorPosition>
+                      <ui:CursorPosition Position="Center">
+                        <ui:CursorPosition.OffsetX>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:CursorPosition.OffsetX>
+                        <ui:CursorPosition.OffsetY>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:CursorPosition.OffsetY>
+                      </ui:CursorPosition>
+                    </ui:Click.CursorPosition>
+                    <ui:Click.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d3d792b1-450b-4417-aecf-81bdd4ad58ee" InformativeScreenshot="78da2b1e73045c25bd98ca24b6d1c94c" Selector="&lt;wnd app='msedge.exe' cls='Chrome_WidgetWin_1' title='Upload New Document - Profile 1 - Microsoft​ Edge' /&gt;&lt;ctrl name='Upload New Document - Microsoft Edge' role='pane' /&gt;&lt;ctrl name='Maximize' role='push button' /&gt;">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:Click.Target>
+                  </ui:Click>
+                  <Sequence DisplayName="Assigned Values in the new window" sap:VirtualizedContainerService.HintSize="443,792" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="401,700" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into - Name" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="359,216" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="d0c2335b-ec4c-4552-a689-6e7c0eaa4fed" Text="[In_ResidentName]" Version="V1">
+                        <uix:NTypeInto.Target>
+                          <uix:TargetAnchorable BrowserURL="https://www28.pointclickcare.com/upload/upload_popup/fileupload.xhtml?ESOLclientid=8113811&amp;ESOLfileId=-1" DesignTimeRectangle="108, 153, 486, 21" DesignTimeScaleFactor="1.1000000238418579" ElementType="InputBox" FriendlyName="'INPUT'" FullSelectorArgument="&lt;html app='msedge.exe' title='Upload New Document' /&gt;&lt;webctrl parentid='detail' tag='TABLE' /&gt;&lt;webctrl tableRow='3' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='detail' tag='TABLE' /&gt;&lt;webctrl type='text' tag='INPUT' class='' aaname='' /&gt;" Guid="b221e112-cf7e-4b27-b57f-bdc589b625e7" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAboAAAAYCAYAAACMVDjUAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHGSURBVHhe7d1dalNRAEbRM10n5TAq+OKbWLUWFGpEsRUq9LFtWl+P2ZFGnEE8rAUfhDuBzc39G9c3t/Py593c/Libn77fz/Nv2/nuy3a+3Wznm/b57043D2ZmZkezfZ92rapZtauG1bKaVttq3OjHxdX9/PB1O19fPMxXHx/ny/PH+eLscZ6c/Zon783MzI54u1bVrNpVw2pZTattNW5UvQ48ez7NzMyWWW2rcaNTvOrXQQBYQU2rbTVu9H9mp3pCB8Aqalptq3Gji3f9r/kUujHGnx8A8J+qabWtxo3uVOkintABsIqaVttq3Oi2zO5YEToAVlHTaluNGz2D0O2ZQgfAKvah27WtxgkdAMsROgCWJnQALE3oAFia0AGwNKEDYGlCB8DS/g2dB8YBWMw+dE8PjHsFGACrqWmHV4B5qTMAq6lph5c6+0wPAKupaYfP9PjwKgCrqWmHD6/2mfE+N95BMzOzVVbbaty4/Hk3L67u9weqX6d6/a/ZRbzuWOn2TDMzs6PdrlU1q3bVsFpW02pbjRvXN7f7H1WvU7z+z+ziXXeqdFtmzyA87XTzYGZmdjTb92nXqppVu2pYLatpte365nb+BmNyOMl3zAMhAAAAAElFTkSuQmCC" InformativeScreenshot="cf25426e9a2d4b74726674aded2605f4.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Upload New Document' /&gt;" SearchSteps="Selector" Visibility="Interactive">
+                            <uix:TargetAnchorable.Anchors>
+                              <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                <uix:Target DesignTimeRectangle="9, 152, 97, 24" ElementType="Text" FriendlyName="'Name'" FullSelectorArgument="&lt;webctrl parentid='detail' tag='TABLE' /&gt;&lt;webctrl tableRow='3' tag='TD' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='detail' tag='TABLE' /&gt;&lt;webctrl type='' tag='TD' class='' aaname='Name:' check:innerText='Name:' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGUAAAAaCAYAAACuCJLbAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAILSURBVGhD7ZpLTsMwEECz4nDhJFzCGw7BgnAKEAhv2CEElEogtS5UQCmlP1onLbAd/E2cNEVFQrIlZvGkyL9K8zzjNEm0d7QDnHPEA3PJnMNMMH3nMJpyGIxTQCkekVKUkJkW8jpK4WmQoRSfWCkTkSUyQ6SQ1vMCpfjCli6ZJcMJh94wBdbL4OZhiVJ8kUsRWfI20Vly97iA89YHSvFFtXR1+xk0u0s4u/1EKb5wpcgD/v4lg6vOEmgTpXjDShmbu66OOE8u2RJOGv9dCksgjiKIE1Zqp2S17a9xpfSFFHnIXwgpx40vlCKlRBEB6rR7k9IWUq5RipBCgAgJEaF5e1kKBaLEGew4MzdJYtMXQ8Kcsc56hXyJ3gBKSvsAtrd24RClOJjAUhV4GVTdXkhhkMSOIDXejDOBtn1yjhZTGWekElqsHcUJtMU1ZkoduRQOTO54ESwmrteXL0deKfBmfp4dzjhK8uxQfeY3T8U1SqnDkWKzQu7okhQVVFt6qtlQBPtnKe58vca+6EMpdVQCa3e1PGO0lHLpWc2UDaWYDNR9Gjzo11GVItBnQ70UFfjfSqldA8vXemqk2CDa8qWDaEXRvMRtLsWOLUqXbMe7rwDBP48B4krBxyyBYKXgA8mAcKXgo/tAkFLwJVdg5FLwdXBYVEsYfjgRAFYKfmIUELaEKTEiW/THeCl8A5KMzW7PSMcRAAAAAElFTkSuQmCC" SearchSteps="Selector" />
+                              </scg:List>
+                            </uix:TargetAnchorable.Anchors>
+                          </uix:TargetAnchorable>
+                        </uix:NTypeInto.Target>
+                      </uix:NTypeInto>
+                      <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Item 'SELECT  ESOLcatId'" sap:VirtualizedContainerService.HintSize="359,134" sap2010:WorkflowViewState.IdRef="SelectItem_2" Item="Supportive documentation">
+                        <ui:SelectItem.Items>
+                          <scg:List x:TypeArguments="x:String" Capacity="50">
+                            <x:String>Court Documents</x:String>
+                            <x:String>Guardianship Documents</x:String>
+                            <x:String>Supportive documentation</x:String>
+                            <x:String>Behavior Note</x:String>
+                            <x:String>PDPM Supporting Documentation</x:String>
+                            <x:String>Podiatry Visit Note</x:String>
+                            <x:String>Wound Care Visit Note</x:String>
+                            <x:String>NP Aprima Visit Note</x:String>
+                            <x:String>Secured Unit Evaluation-Initial</x:String>
+                            <x:String>Telehealth Progress Note</x:String>
+                            <x:String>Convergence/Telehealth Documents</x:String>
+                            <x:String>Self Administration of Medications</x:String>
+                            <x:String>Discharge Summary: Recapitulation of Stay</x:String>
+                            <x:String>RUG Supporting Documentation</x:String>
+                            <x:String>Pre-Admission Documentation</x:String>
+                            <x:String>Medicare Denial Notice</x:String>
+                            <x:String>Advance Care Planning</x:String>
+                            <x:String>9401</x:String>
+                            <x:String>MITS Verification</x:String>
+                            <x:String>Consents</x:String>
+                            <x:String>MSP Questionnaire</x:String>
+                            <x:String>Funeral Documentation</x:String>
+                            <x:String>Hospital Exemption/JFS 7000</x:String>
+                            <x:String>QIT Documentation</x:String>
+                            <x:String>Medicare Secondary Payor</x:String>
+                            <x:String>Room/Roommate Change Notification</x:String>
+                            <x:String>Social Security/Pension Documentation</x:String>
+                            <x:String>9401 Forms</x:String>
+                            <x:String>Diagnostic</x:String>
+                            <x:String>Vaccines</x:String>
+                            <x:String>MDS RAP Supportive documentation</x:String>
+                            <x:String>360Care</x:String>
+                            <x:String>Application For Admission Form</x:String>
+                            <x:String>Psychotropic Medication Evaluation</x:String>
+                            <x:String>**SELECT APPROPRIATE CATEGORY**</x:String>
+                            <x:String>CPHP Visit Note</x:String>
+                            <x:String>Level of Care</x:String>
+                            <x:String>Medicare Secondary Payor</x:String>
+                            <x:String>Hospice Election Form</x:String>
+                            <x:String>PASRR</x:String>
+                            <x:String>Retired Category LOC/PASSAR Documents</x:String>
+                            <x:String>Insurance Cards</x:String>
+                            <x:String>Insurance Eligibility Documents</x:String>
+                            <x:String>Managed Care Documents</x:String>
+                            <x:String>Insurance Authorization Document</x:String>
+                            <x:String>POA - Documentation</x:String>
+                            <x:String>Guardianship Paperwork</x:String>
+                            <x:String>Cut Letters</x:String>
+                            <x:String>Other</x:String>
+                            <x:String>Physician Cert</x:String>
+                          </scg:List>
+                        </ui:SelectItem.Items>
+                        <ui:SelectItem.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3d3557d9-66ef-4604-b1d4-ed4b7eccd07b" InformativeScreenshot="48919618b18f5cd49c1df19d1d765958" Selector="&lt;html app='msedge.exe' title='Upload New Document' /&gt;&lt;webctrl parentid='detail' tag='TABLE' /&gt;&lt;webctrl tableRow='4' tag='SELECT' css-selector='body&amp;gt;div&amp;gt;form&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;select' /&gt;">
+                            <ui:Target.TimeoutMS>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:Target.TimeoutMS>
+                            <ui:Target.WaitForReady>
+                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                            </ui:Target.WaitForReady>
+                          </ui:Target>
+                        </ui:SelectItem.Target>
+                      </ui:SelectItem>
+                      <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="359,178" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_3" Shortcuts="[d(hk)][k(tab)][u(hk)][d(hk)][k(tab)][u(hk)][d(hk)][k(enter)][u(hk)]" Version="V3" />
+                    </Sequence>
+                  </Sequence>
+                </Sequence>
+              </ui:OnUiElementAppear.Body>
+              <ui:OnUiElementAppear.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f91af953-848d-4fcd-a8d5-036da4181ff1" InformativeScreenshot="8cb5e093e5755fa93b1944f395da383d" Selector="&lt;wnd app='msedge.exe' cls='Chrome_WidgetWin_1' title='Upload New Document - Profile 1 - Microsoft​ Edge' /&gt;&lt;ctrl name='Upload New Document - Microsoft Edge' role='pane' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:OnUiElementAppear.Target>
+            </ui:OnUiElementAppear>
+            <ui:OnUiElementAppear ContinueOnError="{x:Null}" FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="On Element Appear - Select File" sap:VirtualizedContainerService.HintSize="873,1574" sap2010:WorkflowViewState.IdRef="OnUiElementAppear_2" RepeatForever="False">
+              <ui:OnUiElementAppear.Body>
+                <Sequence DisplayName="Fill Name" sap:VirtualizedContainerService.HintSize="839,1398" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="x:Boolean" Name="bolFile" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into - File Name" sap:VirtualizedContainerService.HintSize="797,134" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="[In_FilePath]">
+                    <ui:TypeInto.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="870b2eb0-7811-4e90-b230-b98b661362b3" InformativeScreenshot="7fa720247155714e8457aa43a72b3c86" Selector="&lt;wnd app='msedge.exe' cls='#32770' title='Open' /&gt;&lt;wnd ctrlid='1148' /&gt;&lt;wnd ctrlid='1148' /&gt;&lt;wnd ctrlid='1148' /&gt;">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:TypeInto.Target>
+                  </ui:TypeInto>
+                  <Delay Duration="00:00:03" sap:VirtualizedContainerService.HintSize="797,22" sap2010:WorkflowViewState.IdRef="Delay_2" />
+                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click - Open" sap:VirtualizedContainerService.HintSize="797,106" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT">
+                    <ui:Click.CursorPosition>
+                      <ui:CursorPosition Position="Center">
+                        <ui:CursorPosition.OffsetX>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:CursorPosition.OffsetX>
+                        <ui:CursorPosition.OffsetY>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:CursorPosition.OffsetY>
+                      </ui:CursorPosition>
+                    </ui:Click.CursorPosition>
+                    <ui:Click.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f95cc6fa-852f-41bb-baa5-1bf73a6045b9" InformativeScreenshot="642630267672ec8ccd2dec33eb99593e" Selector="&lt;wnd app='msedge.exe' cls='#32770' title='Open' /&gt;&lt;ctrl name='Open' role='push button' /&gt;">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:Click.Target>
+                  </ui:Click>
+                  <ui:UiElementExists DisplayName="Element Exists - Dont Found File" Exists="[bolFile]" sap:VirtualizedContainerService.HintSize="797,106" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+                    <ui:UiElementExists.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6bbdc2c4-d0e9-4e9b-afd6-c30aa9cbd2bd" InformativeScreenshot="16c950b71991ca57cd29c0a24bd39773" Selector="&lt;wnd app='msedge.exe' cls='#32770' title='Open' /&gt;&lt;wnd aaname='Open' cls='DirectUIHWND' /&gt;&lt;ctrl name='Open' role='pane' /&gt;&lt;ctrl name='MainInstructionIcon' role='graphic' /&gt;">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:UiElementExists.Target>
+                  </ui:UiElementExists>
+                  <If Condition="[bolFile]" DisplayName="If - File Validation" sap:VirtualizedContainerService.HintSize="797,778" sap2010:WorkflowViewState.IdRef="If_1">
+                    <If.Then>
+                      <Sequence sap:VirtualizedContainerService.HintSize="376,621" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click - Ok" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_4" KeyModifiers="None" MouseButton="BTN_LEFT">
+                          <ui:Click.CursorPosition>
+                            <ui:CursorPosition Position="Center">
+                              <ui:CursorPosition.OffsetX>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:CursorPosition.OffsetX>
+                              <ui:CursorPosition.OffsetY>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:CursorPosition.OffsetY>
+                            </ui:CursorPosition>
+                          </ui:Click.CursorPosition>
+                          <ui:Click.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="8c5999b2-15e8-485b-8381-356006c78658" InformativeScreenshot="f4ffa25e8e0a7a1df6e77baf105f98f8" Selector="&lt;wnd app='msedge.exe' cls='#32770' title='Open' /&gt;&lt;wnd aaname='Open' cls='DirectUIHWND' /&gt;&lt;wnd cls='Button' title='OK' /&gt;">
+                              <ui:Target.TimeoutMS>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:Target.TimeoutMS>
+                              <ui:Target.WaitForReady>
+                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                              </ui:Target.WaitForReady>
+                            </ui:Target>
+                          </ui:Click.Target>
+                        </ui:Click>
+                        <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click - Cancel" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_5" KeyModifiers="None" MouseButton="BTN_LEFT">
+                          <ui:Click.CursorPosition>
+                            <ui:CursorPosition Position="Center">
+                              <ui:CursorPosition.OffsetX>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:CursorPosition.OffsetX>
+                              <ui:CursorPosition.OffsetY>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:CursorPosition.OffsetY>
+                            </ui:CursorPosition>
+                          </ui:Click.CursorPosition>
+                          <ui:Click.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="87a56f24-6214-4672-a170-f12c75e23205" InformativeScreenshot="76ca22a37ee0a43b588f32e93c374dbe" Selector="&lt;wnd app='msedge.exe' cls='#32770' title='Open' /&gt;&lt;wnd ctrlid='2' title='Cancel' /&gt;">
+                              <ui:Target.TimeoutMS>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:Target.TimeoutMS>
+                              <ui:Target.WaitForReady>
+                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                              </ui:Target.WaitForReady>
+                            </ui:Target>
+                          </ui:Click.Target>
+                        </ui:Click>
+                        <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'push button  Close'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_7" KeyModifiers="None" MouseButton="BTN_LEFT">
+                          <ui:Click.CursorPosition>
+                            <ui:CursorPosition Position="Center">
+                              <ui:CursorPosition.OffsetX>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:CursorPosition.OffsetX>
+                              <ui:CursorPosition.OffsetY>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:CursorPosition.OffsetY>
+                            </ui:CursorPosition>
+                          </ui:Click.CursorPosition>
+                          <ui:Click.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4bca9dd5-2739-42f2-bd9a-302a7c845c88" InformativeScreenshot="9c85256971b72c4970886113f3f808be" Selector="&lt;wnd app='msedge.exe' cls='Chrome_WidgetWin_1' title='Upload New Document - Profile 1 - Microsoft​ Edge' /&gt;&lt;ctrl name='Upload New Document - Microsoft Edge' role='pane' /&gt;&lt;ctrl name='Close' role='push button' /&gt;">
+                              <ui:Target.TimeoutMS>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:Target.TimeoutMS>
+                              <ui:Target.WaitForReady>
+                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                              </ui:Target.WaitForReady>
+                            </ui:Target>
+                          </ui:Click.Target>
+                        </ui:Click>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Warn" Message="[&quot;It was not possible to upload the document&quot;]" />
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <Sequence sap:VirtualizedContainerService.HintSize="376,198" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click  - Upload" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT">
+                          <ui:Click.CursorPosition>
+                            <ui:CursorPosition Position="Center">
+                              <ui:CursorPosition.OffsetX>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:CursorPosition.OffsetX>
+                              <ui:CursorPosition.OffsetY>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:CursorPosition.OffsetY>
+                            </ui:CursorPosition>
+                          </ui:Click.CursorPosition>
+                          <ui:Click.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="cba4ff38-a2fb-4ca0-adab-c60ee977b35a" InformativeScreenshot="fce2662b1a94da8a5ad49b0ce19041fa" Selector="&lt;html app='msedge.exe' title='Upload New Document' /&gt;&lt;webctrl parentid='upload' tag='INPUT' type='button' aaname='Upload' /&gt;">
+                              <ui:Target.TimeoutMS>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:Target.TimeoutMS>
+                              <ui:Target.WaitForReady>
+                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                              </ui:Target.WaitForReady>
+                            </ui:Target>
+                          </ui:Click.Target>
+                        </ui:Click>
+                      </Sequence>
+                    </If.Else>
+                  </If>
+                </Sequence>
+              </ui:OnUiElementAppear.Body>
+              <ui:OnUiElementAppear.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="97e39c48-47b6-4f10-9a19-d9c7ce4caf5a" InformativeScreenshot="fed0dec0062d0fbb096a2cb9ac69fe69" Selector="&lt;wnd app='msedge.exe' cls='#32770' title='Open' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:OnUiElementAppear.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:OnUiElementAppear>
+            <Delay Duration="00:00:05" sap:VirtualizedContainerService.HintSize="873,22" sap2010:WorkflowViewState.IdRef="Delay_1" />
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-8, -8, 1382, 744" BrowserType="Edge" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADCSURBVDhPY3B0cPpPCUYxIKhd63/6Xk2seMK5hP9TzqeiaAZhvAak7tL4n7YH1aD5V0qJMyB8gTKKwuRtGnC5gDoduDhuAxaiGuARawGXS9ysDhcn2gBnXxu4XPwGNbg40QZk7tOBywVOVYCL4zRgybXq/x2nQ/9vuN33f/3tHrg4KGCR9eA0ABsG+d3J1Z44AxI2qoO9ETpH6b9Xpxw4DJDVwjDRYYALDzcDAlu1/seuVQNjUOAhy+HCKAaQjp3+AwD33/G5tGA3hwAAAABJRU5ErkJggg==" InformativeScreenshot="615bdef05180d8fec36f4d39889551cc.png" Selector="&lt;html app='msedge.exe' omit:url='https://www28.pointclickcare.com/admin/client/cp_mds.jsp?ESOLclientid=8600080&amp;amp;ESOLtabtype=C' /&gt;" />
+      </uix:NApplicationCard.TargetApp>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>

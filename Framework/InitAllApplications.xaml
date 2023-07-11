@@ -1,0 +1,270 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Initialize_Applications" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:m="clr-namespace:Maintance_Window;assembly=Maintance Window" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:r="clr-namespace:Restore_Page;assembly=Restore Page" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="Out_Browser" Type="OutArgument(ui:UiElement)" />
+    <x:Property Name="Out_LoginSuccessful" Type="OutArgument(x:Boolean)" />
+    <x:Property Name="Out_MaintananceExists" Type="OutArgument(x:Boolean)" />
+    <x:Property Name="Out_ScrPath" Type="OutArgument(x:String)" />
+    <x:Property Name="Out_ScrDetailsPath" Type="OutArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1410.4,967.2</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Initialization_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="70">
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Management.Automation</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Windows</x:String>
+      <x:String>System.Windows.Media.Animation</x:String>
+      <x:String>System.Windows.Media</x:String>
+      <x:String>System.Windows.Threading</x:String>
+      <x:String>Restore_Page</x:String>
+      <x:String>UiPath.Mail</x:String>
+      <x:String>UiPath.Mail.Outlook.Activities</x:String>
+      <x:String>UiPath.Mail.Activities</x:String>
+      <x:String>Maintance_Window</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="54">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Management.Automation</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>TimeSpan2</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>Restore Page</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>UiPath.Python</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities.Design</AssemblyReference>
+      <AssemblyReference>Maintance Window</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Open applications used in the process and do necessary initialization procedures (e.g., login)." DisplayName="Initialize All Applications" sap:VirtualizedContainerService.HintSize="558.4,902.4" sap2010:WorkflowViewState.IdRef="Sequence_9">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="ss:SecureString" Name="VarPassward" />
+      <Variable x:TypeArguments="x:String" Name="VarUserName" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="516.8,778.4" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <TryCatch.Try>
+        <Sequence sap:VirtualizedContainerService.HintSize="516.8,2274.4" sap2010:WorkflowViewState.IdRef="Sequence_13">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Sequence sap2010:Annotation.AnnotationText="Open applications used in the process and do necessary initialization procedures (e.g., login)." DisplayName="Initialize All Applications" sap:VirtualizedContainerService.HintSize="475.2,2081.6" sap2010:WorkflowViewState.IdRef="Sequence_12">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="ss:SecureString" Name="VarPassward" />
+              <Variable x:TypeArguments="x:String" Name="VarUserName" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:LogMessage DisplayName="Log message (Initialize applications)" sap:VirtualizedContainerService.HintSize="433.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Trace" Message="[&quot;Opening applications...&quot;]" />
+            <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="PCC_Credential" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="433.6,183.2" sap2010:WorkflowViewState.IdRef="GetRobotCredential_2" Password="[VarPassward]" Username="[VarUserName]" />
+            <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Edge: PointClickCare Login" sap:VirtualizedContainerService.HintSize="433.6,1588.8" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" OutUiElement="[Out_Browser]" ScopeGuid="a012070a-4294-4eca-bf70-122d1f71927b" Version="V1">
+              <uix:NApplicationCard.Body>
+                <ActivityAction x:TypeArguments="x:Object">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="375.2,1372" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:MaximizeWindow Window="{x:Null}" DisplayName="Maximize Window" sap:VirtualizedContainerService.HintSize="333.6,22.4" sap2010:WorkflowViewState.IdRef="MaximizeWindow_2" />
+                    <r:Restore_Page_Cancel DisplayName="Restore Page Cancel" sap:VirtualizedContainerService.HintSize="333.6,22.4" sap2010:WorkflowViewState.IdRef="Restore_Page_Cancel_2" />
+                    <m:Maintance_Exists sap:VirtualizedContainerService.HintSize="333.6,22.4" sap2010:WorkflowViewState.IdRef="Maintance_Exists_1" In_FolderPath="[in_Config(&quot;MaintenanceScreenshotFolder&quot;).ToString]" MaintanaceScrPath="[Out_ScrPath]" MaintenanceDetailsPath="[Out_ScrDetailsPath]" MaintenanceExists="[Out_MaintananceExists]" />
+                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Username'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="333.6,218.4" sap2010:WorkflowViewState.IdRef="NTypeInto_3" ScopeIdentifier="a012070a-4294-4eca-bf70-122d1f71927b" Text="[VarUserName]" Version="V1">
+                      <uix:NTypeInto.Target>
+                        <uix:TargetAnchorable BrowserURL="https://login.pointclickcare.com/home/userLogin.xhtml" DesignTimeRectangle="592, 366, 278, 17" ElementType="InputBox" FriendlyName="'ccre.uipdev3'" FullSelectorArgument="&lt;webctrl tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='text' aaname='Username' /&gt;" Guid="59bb771b-8956-41a6-a30a-a31801a69695" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAARoAAAAVCAYAAACZkiHbAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIsSURBVHhe7Zg9bsJAEEZ9PCQKDuSCjjPQ0HIDKnoOQJcLIEpOkI137TEz+2PHCY4gvE96Uuwdz84W8zGbyiGE0MzCaBBCs6s3muvtEwDgoYgwGgCYDRFGAwCzIXp+ozluXFVt3CG3NsJ5t3LVcu/OmbUphDxV1fGzWgDeERFGM0a0/2HdmM0DzAvgHRD966vToyYawy+MD+DdEGWNxlwVokYNv+iytj61733zLTeuXvr3K7f9GIjNEOLUujEI3djd31tVX32857neLm4bavCsXL22RlM6V7z/9WPvFuocmiQWAIqIUqPJXRW6xrITQtvUi92l+8Y2fTG2W9dMMxoVG57vhmD3PLlaG8rAueI1m6dD9i4YEACkiBKjKf9iD5hF1KgSa6YNHxM3b8c0o9GNrmtK69N5/B6m9jC1SM2tKUm9PtZOSoqkBgAoIUqMpjx52GY0JEbTTRMJOubONKOxOe4GkqnPx4c8rQml9UTTUKjB58nX2TJguABgEP3dRDPANKN50EQTIxOO3yN7fmHAcAHAIBr9H41uVmMADb1BJEZTiFXPmhDbf98aRh+bGI0yjPAcTSXfyZPEqvj4WjT6HQCUEKVG09A2k286j22qYBiyVmjibKxZ91OBbmh91Wre75p8RaPZuFrljScLvWe9Vnka7LkiQ5F1FW/eD3wHAHlEWaN5WgqGBgDPiQijAYDZEGE0ADAbotcyGgB4KUS90SCE0FzCaBBCM8u5LzagVK6Jt+b5AAAAAElFTkSuQmCC" InformativeScreenshot="280915a312f321b2c5d7b7402eea8a22.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='msedge.exe' title='PointClickCare Login' /&gt;" SearchSteps="Selector, Image">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target DesignTimeRectangle="492, 363, 81, 19" ElementType="Text" FriendlyName="'Username'" FullSelectorArgument="&lt;webctrl tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='LABEL' type='' aaname='Username' check:text='Username' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFUAAAAXCAYAAAB6ZQM9AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGySURBVFhH7ZTNkcMgDIW3stxSjm8pxJNWPJM6ckgPuaQHLT/PICHZsxvgpjfDAQTo6UP2D7mGy6FOkEOdIIc6QQ51ghzqBEmoz5Uu1yvdn5gLvemxXOmymkEXk0OdIIc6QZ1QsRbO1LHQ440w9FrlntsmN6T4stHnvdFt34c8Zsy447MtJVZGPId41pPuOCs9rfSK4SaH3UD5jnpW19sBFfPGeCyunjf2wDiHUgpUEA5ihk+ZN8ryV4Eoj2kdcKPgU9xpeM+PKcF+D9VK2ignZEahtM6KLd2IOZcdqx13Jp3fPmf7bOpV8115nd/Z0an7q+v2zzoyEZTy1CK+haruhn85uL8OqCdNlDwyL33/VCQSRZQ49rfxMmqx/VBrLu49wxoLVdeBwTxKqKef9EF3MGVzu2njEQ7UDfWgGWZAtdlISahn4P50qTRim9UaA1X/hoZC/UeTNFCDzFdHEby4CLktVoE3ziWFdbbWDdWCVf6vo6AG4c72fFznaxpqFOBkUxjqhZC02Wd1cgLT7OMm+qEGtZ5DbGyn7kJuMeRXYkN1dcmhTpBDnSCHOkEOdbiIfgEzIVKiohGUPQAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NTypeInto.Target>
+                    </uix:NTypeInto>
+                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Username'" EmptyFieldMode="None" sap:VirtualizedContainerService.HintSize="333.6,218.4" sap2010:WorkflowViewState.IdRef="NTypeInto_5" ScopeIdentifier="a012070a-4294-4eca-bf70-122d1f71927b" Text="%[k(enter)]" Version="V1">
+                      <uix:NTypeInto.Target>
+                        <uix:TargetAnchorable BrowserURL="https://login.pointclickcare.com/home/userLogin.xhtml" DesignTimeRectangle="592, 366, 278, 17" ElementType="InputBox" FriendlyName="'ccre.uipdev3'" FullSelectorArgument="&lt;webctrl tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='text' aaname='Username' /&gt;" Guid="59bb771b-8956-41a6-a30a-a31801a69695" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAARoAAAAVCAYAAACZkiHbAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIsSURBVHhe7Zg9bsJAEEZ9PCQKDuSCjjPQ0HIDKnoOQJcLIEpOkI137TEz+2PHCY4gvE96Uuwdz84W8zGbyiGE0MzCaBBCs6s3muvtEwDgoYgwGgCYDRFGAwCzIXp+ozluXFVt3CG3NsJ5t3LVcu/OmbUphDxV1fGzWgDeERFGM0a0/2HdmM0DzAvgHRD966vToyYawy+MD+DdEGWNxlwVokYNv+iytj61733zLTeuXvr3K7f9GIjNEOLUujEI3djd31tVX32857neLm4bavCsXL22RlM6V7z/9WPvFuocmiQWAIqIUqPJXRW6xrITQtvUi92l+8Y2fTG2W9dMMxoVG57vhmD3PLlaG8rAueI1m6dD9i4YEACkiBKjKf9iD5hF1KgSa6YNHxM3b8c0o9GNrmtK69N5/B6m9jC1SM2tKUm9PtZOSoqkBgAoIUqMpjx52GY0JEbTTRMJOubONKOxOe4GkqnPx4c8rQml9UTTUKjB58nX2TJguABgEP3dRDPANKN50EQTIxOO3yN7fmHAcAHAIBr9H41uVmMADb1BJEZTiFXPmhDbf98aRh+bGI0yjPAcTSXfyZPEqvj4WjT6HQCUEKVG09A2k286j22qYBiyVmjibKxZ91OBbmh91Wre75p8RaPZuFrljScLvWe9Vnka7LkiQ5F1FW/eD3wHAHlEWaN5WgqGBgDPiQijAYDZEGE0ADAbotcyGgB4KUS90SCE0FzCaBBCM8u5LzagVK6Jt+b5AAAAAElFTkSuQmCC" InformativeScreenshot="280915a312f321b2c5d7b7402eea8a22.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='msedge.exe' title='PointClickCare Login' /&gt;" SearchSteps="Selector, Image">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target DesignTimeRectangle="492, 363, 81, 19" ElementType="Text" FriendlyName="'Username'" FullSelectorArgument="&lt;webctrl tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='LABEL' type='' aaname='Username' check:text='Username' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFUAAAAXCAYAAAB6ZQM9AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGySURBVFhH7ZTNkcMgDIW3stxSjm8pxJNWPJM6ckgPuaQHLT/PICHZsxvgpjfDAQTo6UP2D7mGy6FOkEOdIIc6QQ51ghzqBEmoz5Uu1yvdn5gLvemxXOmymkEXk0OdIIc6QZ1QsRbO1LHQ440w9FrlntsmN6T4stHnvdFt34c8Zsy447MtJVZGPId41pPuOCs9rfSK4SaH3UD5jnpW19sBFfPGeCyunjf2wDiHUgpUEA5ihk+ZN8ryV4Eoj2kdcKPgU9xpeM+PKcF+D9VK2ignZEahtM6KLd2IOZcdqx13Jp3fPmf7bOpV8115nd/Z0an7q+v2zzoyEZTy1CK+haruhn85uL8OqCdNlDwyL33/VCQSRZQ49rfxMmqx/VBrLu49wxoLVdeBwTxKqKef9EF3MGVzu2njEQ7UDfWgGWZAtdlISahn4P50qTRim9UaA1X/hoZC/UeTNFCDzFdHEby4CLktVoE3ziWFdbbWDdWCVf6vo6AG4c72fFznaxpqFOBkUxjqhZC02Wd1cgLT7OMm+qEGtZ5DbGyn7kJuMeRXYkN1dcmhTpBDnSCHOkEOdbiIfgEzIVKiohGUPQAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NTypeInto.Target>
+                    </uix:NTypeInto>
+                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Password'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="333.6,243.2" sap2010:WorkflowViewState.IdRef="NTypeInto_4" ScopeIdentifier="a012070a-4294-4eca-bf70-122d1f71927b" SecureText="[VarPassward]" Version="V1">
+                      <uix:NTypeInto.Target>
+                        <uix:TargetAnchorable BrowserURL="https://login.pointclickcare.com/home/userLogin.xhtml" DesignTimeRectangle="592, 412, 278, 17" ElementType="InputBoxPassword" FriendlyName="'dev3$'" FullSelectorArgument="&lt;webctrl tag='INPUT' type='password' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='password' aaname='Password' /&gt;" Guid="c91e02e9-1258-44ee-8d05-cc9d75e8b8c9" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAARoAAAAVCAYAAACZkiHbAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADPSURBVHhe7dixbcJQGIXRN14kCgaiZ4Y0tGyQip4BPISVkgl4YMNvItEkErcJ55NO8+Qnubqy3LokhTM0kuItQ/N9OgO8VGVogJjK0AAxlaEBYipDA8RUhgaIqQwNEFM9D81h21trV9v+dT8bduvb2Wrfh/ns2DfzM61vDn+5B7yT6mloPle3AZl87Mbr2WNUJtOwLAMymUdk/NW9ny8A/H+VLxogpvKPBoipDA0QUxkaIKYyNEBMZWiAmMrQADGVoQFiqmVoJCmVoZEUrvcLuQL46IjvrWMAAAAASUVORK5CYII=" InformativeScreenshot="53d28d211213cb66cf559941ea1095c3.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='PointClickCare Login' /&gt;" SearchSteps="Selector">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target DesignTimeRectangle="498, 409, 75, 19" ElementType="Text" FriendlyName="'Password'" FullSelectorArgument="&lt;webctrl aaname='Password' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Password' tag='LABEL' type='' check:text='Password' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAE8AAAAXCAYAAABK6RIcAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHxSURBVFhH7VZBcsMwCOzLevNzfPNDPPmKZ/IOH/IHX/IHFQRSACHXsdLpwdoZHUwQLAui/Qodp9HFa0AXrwFdvAZ08RrQxTuI5zKG72EOD/5GaPG2JUzDAE7mzCs7XBeHxZuWjQ2INdxQwHEJT7ZcESfFA6xznMDbhQfwvHjKvoX7aJ61dwdACXf8uCnqpBXBOVXD3rS94uqiEY8Z7PiapK9YT/F3FQPPR8QzZJx7JNwY7jIU+iWC7jTDisjrgdZFGROKkDs4xhF8nLgkhOacxSnWEQ+HsTc+WyOEAifMRdnvErnz/O1B+1DMadRFeD5l3tJezV+p9Zx4bLOEcufkEWTS70UjGO4UGSjCkQcWRRNJk8WCphzMVU8zwYpVE69mPyyeEgSOK6YKxJ1VSdmmYunkZQOcZw72KAZOBMeP96LoUkjAjni2+D8TrzYtCCpYB/HFM0iiV334XyKnKcgH82Zeac/FmMJ/Rzwryv+JVwQ/IB7AI6Dg7JuYb55BWGnnPya4/1RO5tGw82ocPyJetUCcmkwGyZonaArAO3ZC3IJivtKechZc2V/GJl9duJsrgl+AbEDi0CwegLpA5IloOXnWJx6XkDheMTVOjkgZfOcVu5ykuniItEL4AO/fJ6/jLXTxGtDFa0AXrwFdvNMI4QdnKTcqCsJHTwAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NTypeInto.Target>
+                    </uix:NTypeInto>
+                    <uix:NClick ClickType="Single" DisplayName="Click 'Login'" sap:VirtualizedContainerService.HintSize="333.6,157.6" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="a012070a-4294-4eca-bf70-122d1f71927b" Version="V1">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable BrowserURL="https://login.pointclickcare.com/home/userLogin.xhtml" DesignTimeRectangle="774, 486, 104, 43" ElementType="Button" FriendlyName="'Login'" FullSelectorArgument="&lt;webctrl parentid='id-submit' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='BUTTON' type='submit' aaname='               Login                    ' check:text='Login' /&gt;" Guid="0ed8cb1c-3385-43a4-a09f-c0a6065a8cbe" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGwAAAAvCAYAAAAGqi8PAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAUCSURBVHhe7ZzdSxxXGIcDhd72DygUvPFCQQpVpODVGq3WC6HdJq2oV21R42XWtGkR1K1I02w+KkviB4VgrdD0yijMYpHihbUUWWIDemGxqyQRG40Kltbsvpn3zJnZmdl3ZmfX3ZnZcn7wgLtnzjnwPp6d2TOO50CkpCKElVhIYScnJyBJEoyPj8PAwAD09fUJXABrjTXH2qMDKhnC1tfXIRwOkwMK3AMdoAtzDMI2Nja0Dl1dXdDa2grNzc3Q2NgocAGsNdYca48O2tvbYXFxkdtRognDJTg0NAShUAi6u7vJAQXuUlZWBrW1tXBwcMAt6YQtLS0xqz09PWRngbs0NDRAZWUlkzY5Ockt6YRNTU0xYcFgkBxA4D51dXVMWG9vL7ekEzY8PMyEtbS0kJ0F7lNfX8+EoTg1mjCUhVAdBd6BwhA1QpjPEcJKDCGsALz/XhCufX0NZmdnISbFYGFhgf1848ZN+CB4geyTL0LYGfjk409hZeU3XjHrrK6uQndXYb4eCWF5UB84D9PfT/NKOc/9+z+xvtSYThHCcqThfCMsLy/zKuWeeDwOTe/kv71XFGFSQh7gOA5Roq2gsIkSIFFtRWJubp7VR8vfjwCe/p7mv2PeYB08x1FjO6G0hblMeOgrpTi6pP74DpLXz2mk5tp4i32ufxMh58iGEOYQ/Cjc2dlRimNKajZolPboHm+xDm7gvtuc+y6Sp8LYcbokJPMxUYjrP2ESceV1QlLaTR+JUWyU55UMnY4hHtWPmR/U6tLyzzNI3n09LW30NYDnf/JG6+BXAWouOzwSporQnX+4vbQ0fowqRy/PTpi+Xe1TgNWO5x27pP762bDKkjN18psveCsdvHih5rLDG2HKARm/+YZ+JhmMaFzuhW/bCTP1sZgrV/b29nBm26R+CRmkpX4N8xY6R0dH5Fx2eCKMLCyiKy49hmnVUcLMfQokzFFe/AvJe2+mpd18FeDJCm+kQ81lh3fCqPZSFyYntfnAuMp+DPAWOtRcdvhwhSnv+01YMpmUx8kSXGFTb6WFRV75f6wwqyIa+plkMJycw4okbGtrC2e2TcY5bHmAt9B5/PgJOZcd3gjTrvh0QlgndGE6RpWj9cGho7o+7gib+WGGzW0VdpUoryhN2PTbWa8S89nxKJ4wi2jFzjiOKmpaEuY4LrHXXgi7dCn9dxQZwe9hY2+kZTn8Hnb5coicy46iCCsekqxHvwrdBW+TUEk9uJiWJeNkp+PhwzVyjmz4VphyYWJcGcp7pvOai+D9r9PTU1YfNRl7ibK8bMELGFyx1BzZ8PUKy/xo9U6WCm4nGZLHbv2tW7fJsZ3ga2F+ZfTbUWeX+UTGxsbJMZ0ihOXJlb4rsLu7y6uVPbi19cXVL8mxckEIOwN45xhX2+am9RVhIpGAO3funukusx4hrEBcvPAhW3V4YxL5/LOr0PZRG3nsWRDCSgwhrMQQwkoMS2GDg4NMmHh6xT+oT6/U1NRwSzphExMTTJh4Psw/qM+HdXZ2cks6YfPz80yYeFzWH+ATmBUVFUzYyMgIt6QTtr+/D/39/UxaU1MTOYjAPVRZVVVVsL29zS3phGHW1tbYQ+l4YHl5OXsgOhAIkAMKCg/WGmuOtUcHSCwW43aUGIRh8N8MYCe1g8Ab0IH5Xz5gMoRhDg8PIRKJQEdHB1RXV5MDCgoP1hprjrVHB1RIYSL+jRBWUgF4CbAm/Ud+BgC5AAAAAElFTkSuQmCC" InformativeScreenshot="e577e0b9a1fb69ae7842167553fade4f.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='PointClickCare Login' /&gt;" SearchSteps="Selector, Image">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target DesignTimeRectangle="788, 498, 49, 17" ElementType="Text" FriendlyName="'Login'" FullSelectorArgument="&lt;webctrl parentid='login-button' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='login-button' tag='SPAN' type='' aaname='Login' check:text='Login' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADUAAAAVCAYAAADmSqZGAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAECSURBVFhH7ZTrDYUgDIXvdIzILt2CGViBAarlZalg9EYgGknOD2kP7SePn1IK36YP6il6PxRYRHQGNZvrIl/IItRiN2gOVGd9UEk+jw0LMkejcTFIw5rwbSHExfHTFFzrQmFyaDRf87wuQqVm2X2IhBtYzEkAHPAIiseT589Tcw0qJOz+YOETDXtps7po+ghKeBq1zugSVLU4iTVQX0PsXg1KeoZC1eKPh2ruVJh/HFSrUOETDXuduVPToPJLxpr2JupX5CSA7KGlNfOMhGqM3NAur1Z4A6HhDPjvKVD9BCsC382+uh0qPCblHw5z4p51VJed2h/jcUCkQcdvrF4IpXABDzVLtU1gSrkAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NClick.Target>
+                    </uix:NClick>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Login to PointClickCare Successfully.. &quot;]" />
+                  </Sequence>
+                </ActivityAction>
+              </uix:NApplicationCard.Body>
+              <uix:NApplicationCard.TargetApp>
+                <uix:TargetApp Area="-8, -8, 1382, 744" BrowserType="Edge" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAC7SURBVDhPtZJRDsIwDEN79B5lH4hz9JszcAj++ShzmqelawdDAkvWmiV2vWjpL8g511JKrc/HwHIvVX0fnWMm3PPQZFkuNqDnGmVjyib6aKCm4ns54K0BN8hA5xkPDYj+DV3aoO3S0DnW8Hrra+3FxDHafnESiS3yNtftCQPb/Dqk2yXCwMRODNqsg+/XAGYYREHcU0vk4K+TQCaIMUOg99QubWBhMWoU0+PcxRfi4BkOBnzfWVrK3yClF/WSHZcmKzL7AAAAAElFTkSuQmCC" InformativeScreenshot="4c87336d90f835e810eaff686456b493.png" Selector="&lt;html app='msedge.exe' title='PointClickCare Login'/&gt;" Url="https://login.pointclickcare.com/home/userLogin.xhtml" />
+              </uix:NApplicationCard.TargetApp>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NApplicationCard>
+          </Sequence>
+          <Assign sap:VirtualizedContainerService.HintSize="475.2,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:Boolean">[Out_LoginSuccessful]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+            </Assign.Value>
+          </Assign>
+        </Sequence>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="483.2,613.6" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <Sequence sap:VirtualizedContainerService.HintSize="476.8,543.2" sap2010:WorkflowViewState.IdRef="Sequence_14">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="435.2,317.6" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                <ui:CommentOut.Body>
+                  <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="375.2,239.2" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" Body="[in_Config(&quot;LoginExceptionEmailBody&quot;).ToString]" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="333.6,146.4" sap2010:WorkflowViewState.IdRef="SendOutlookMail_1" Importance="Normal" IsBodyHtml="True" IsDraft="False" Sensitivity="Normal" Subject="[in_Config(&quot;LoginExceptionEmailSubject&quot;).ToString]" To="[in_Config(&quot;LoginExceptionEmailReceiver&quot;).ToString]">
+                      <ui:SendOutlookMail.Files>
+                        <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
+                      </ui:SendOutlookMail.Files>
+                    </ui:SendOutlookMail>
+                  </Sequence>
+                </ui:CommentOut.Body>
+              </ui:CommentOut>
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="435.2,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Login Failed : &quot;+exception.Message]" />
+            </Sequence>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+    </TryCatch>
+  </Sequence>
+</Activity>

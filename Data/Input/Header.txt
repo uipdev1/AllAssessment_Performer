@@ -1,0 +1,61 @@
+Private Sub FormatHeaders()
+    Dim ws as Worksheet
+    Dim iRange As Range
+    Dim iCells As Range
+    Dim mySheet As Variant
+    Dim iRow As Long
+    Dim iColumn As Long
+	
+    mySheet = "Sheet1"
+    iRow = ActiveSheet.Range("A6").End(xlDown).Row
+    iColumn = ActiveSheet.Range("A6").End(xlToRight).Column
+    
+	For Each ws in Worksheets
+        ws.Activate
+        
+        Cells.EntireRow.Autofit
+		Cells.EntireColumn.Autofit
+	
+        'Rows("1:1").Font.Bold = True
+		'Rows("6:6").Font.Bold = True
+		Range("A1:D1").Merge True
+		Range("A2:D2").Merge True
+		Range("A3:D3").Merge True
+		Range("A4:D5").Merge True
+		Range("A5:D5").Merge True
+		
+	'This is to Add Borders.
+		Set iRange = ThisWorkbook.ActiveSheet.UsedRange
+		For Each iCells In iRange
+	    	iCells.BorderAround _
+				LineStyle:=xlContinuous, _
+            	Weight:=xlThin
+    	    	iCells.Font.Bold = True
+	Next iCells
+			
+	'This is to delete sheet
+		Application.DisplayAlerts = False
+			If mySheet = ws.Name Then
+     		ws.Delete
+			End If
+		Application.DisplayAlerts = True
+
+	'This is to add background colour
+        Range(Range("A6"),Range("A6").End(xlToRight)).Interior.Color = RGB(255, 215, 0)
+		Columns("A").ColumnWidth = 6
+		Columns("D").ColumnWidth = 45
+		Columns("G").ColumnWidth = 28
+		Columns("H").ColumnWidth = 30
+		Range(Range("A6"),Range("A6").End(xlDown)).HorizontalAlignment = xlCenter
+		Range(Range("E1"),Range("E1").End(xlToRight)).Borders.LineStyle = xlNone
+		Range(Range("E2"),Range("E2").End(xlToRight)).Borders.LineStyle = xlNone
+		Range(Range("E3"),Range("E3").End(xlToRight)).Borders.LineStyle = xlNone
+		Range(Range("E4"),Range("E4").End(xlToRight)).Borders.LineStyle = xlNone
+		Range(Range("E5"),Range("E5").End(xlToRight)).Borders.LineStyle = xlNone
+		Range(Range("D6"),Range("D6").End(xlDown)).WrapText = True
+		Range(Range("G6"),Range("G6").End(xlDown)).WrapText = True
+		Range(Range("H6"),Range("H6").End(xlDown)).WrapText = True
+	
+    Next
+    Sheets(1).Select
+End Sub

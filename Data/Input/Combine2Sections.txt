@@ -1,0 +1,110 @@
+Sub AppendAllSheetsData()
+    Dim i As Integer
+    Dim j As Integer
+    Dim C As Integer
+    Dim SheetN As String
+    Dim Result As String
+    Dim SheetNo As Integer
+    Dim FinalCount As Integer
+    Dim InitialCount As Integer
+    On Error Resume Next
+
+    Sheets(1).Select
+    Worksheets.Add
+    Sheets(2).Activate
+    
+
+    
+    'Loop Start Here to combine the sheets
+    For i = 2 To 5
+         If i = 2 Then Sheets(1).Range("A1") = Sheets(i).Name And Sheets(1).Range("A1").Font.FontStyle = "bold"
+         If i > 2 Then Sheets(1).Range("A" & Rows.Count).End(xlUp)(2).Offset(1) = Sheets(i).Name
+         If i > 2 Then Sheets(1).Range("A" & Rows.Count).End(xlUp)(1).Font.Bold = True
+         'If i > 2 Then Sheets(1).Range(Range("A" & Rows.Count), Range("D" & Row.Count)).End(xlUp)(1).Merge
+        'Sheets(1).Range("A65536").End(xlDown)(1) = Sheets(i).Name
+        If (IsEmpty(Sheets(i).Range("A5"))) Then Sheets(i).Range("A5").EntireRow.Delete
+        Sheets(i).Activate
+        Range("A1").Select
+        Selection.CurrentRegion.Select
+        If i = 2 Then
+        Selection.Copy Destination:=Sheets(1).Range("A65536").End(xlUp)(1)
+        ElseIf i > 2 Then Selection.Copy Destination:=Sheets(1).Range("A65536").End(xlUp)(2)
+        End If
+        
+        
+        
+      
+        
+    Next i
+    Sheets(1).Name = "Section A-B-C-D"
+    Sheets(1).Activate
+    Sheets(1).Rows("1:400").RowHeight = 15
+     Sheets(1).Columns("A:J").AutoFit
+     
+SheetNo = 0
+C = 0
+InitialCount = Sheets.Count + 1
+
+For i = 7 To Sheets.Count + 1
+
+If C Mod 2 = 0 Then Worksheets.Add
+If C Mod 2 = 0 Then SheetNo = SheetNo + 1
+
+If i = 7 Then SheetNo = 0
+
+        If Not C Mod 2 = 0 Then Sheets(1).Range("A" & Rows.Count).End(xlUp)(2).Offset(1) = Sheets(i + SheetNo).Name
+         
+        If Not C Mod 2 = 0 Then Sheets(1).Range("A" & Rows.Count).End(xlUp)(1).Font.Bold = True
+         
+       If (IsEmpty(Sheets(i + SheetNo).Range("A5"))) Then Sheets(i + SheetNo).Range("A5").EntireRow.Delete
+        Sheets(i + SheetNo).Activate
+        Range("A1").Select
+        Selection.CurrentRegion.Select
+        If C Mod 2 = 0 Then
+        Selection.Copy Destination:=Sheets(1).Range("A65536").End(xlUp)(1)
+        ElseIf Not C Mod 2 = 0 Then Selection.Copy Destination:=Sheets(1).Range("A65536").End(xlUp)(2)
+        End If
+        
+       Sheets(1).Range("D60") = i
+       Sheets(1).Range("D61") = InitialCount
+      If C Mod 2 = 0 And i < InitialCount Then
+      Result = Split(Sheets(i + SheetNo).Name, " ")(1)
+      ElseIf Not C Mod 2 = 0 Then
+      SheetN = Split(Sheets(i + SheetNo).Name, " ")(1)
+      Sheets(1).Name = "Section " & Result & "-" & SheetN
+      ElseIf C Mod 2 = 0 And i = InitialCount Then
+      SheetN = Split(Sheets(i + SheetNo).Name, " ")(1)
+      Sheets(1).Name = "Section-" & SheetN
+      
+      End If
+      
+      C = C + 1
+         Sheets(1).Activate
+      Sheets(1).Rows("1:400").RowHeight = 15
+     Sheets(1).Columns("A:J").AutoFit
+     
+ 
+Next i
+                  
+            
+    FinalCount = Sheets("Section A-B-C-D").Index
+
+Application.ScreenUpdating = False
+Dim k As Integer, m As Integer
+
+For k = 1 To FinalCount - 1
+    For m = k + 1 To FinalCount
+        If UCase(Sheets(m).Name) < UCase(Sheets(k).Name) Then
+            Sheets(m).Move before:=Sheets(k)
+        End If
+    Next m
+Next k
+
+Application.ScreenUpdating = True
+End Sub
+
+
+
+
+
+

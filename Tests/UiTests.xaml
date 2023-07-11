@@ -1,0 +1,120 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="UiTests" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#" sap:VirtualizedContainerService.HintSize="466,818" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Text</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.CSharp</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Python.Activities</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="UiTests" sap:VirtualizedContainerService.HintSize="476,753" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Edge - Behavior Report Window" sap:VirtualizedContainerService.HintSize="434,661" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="5150569f-61e5-4b3d-a9b5-f8dd5920a54c" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,445" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NClick ClickType="Single" DisplayName="Click - Dropdown" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NClick_1" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="5150569f-61e5-4b3d-a9b5-f8dd5920a54c" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="69, 206, 198, 20" DesignTimeScaleFactor="1" FriendlyName="'Save as PDF'" FullSelectorArgument="&lt;ctrl name='www28.pointclickcare.com/poc/report/behaviorReport.xhtml' role='document' /&gt;&lt;ctrl name='Printer Save as PDF' role='menu button' /&gt;&lt;ctrl role='grouping' /&gt;" FuzzySelectorArgument="&lt;ctrl name='www28.pointclickcare.com/poc/report/behaviorReport.xhtml' role='document' /&gt;&lt;ctrl name='*' role='menu button' /&gt;&lt;ctrl role='grouping' automationid='' check:fulltext='Save as PDF' /&gt;" Guid="19094333-bced-4f0d-8beb-2d7c1e47073b" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAMoAAAAYCAYAAAC7k2KMAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHrSURBVHhe7ZjrcYMwEAbTD33RisqhFfqgCIXTA+4OSVb8z/HuDBPD2XrMfIuk/EQAeAmiAEyAKAATIArABIgCMAGiAEyAKAATOFGOuK1LXJZ6rXE7SulT2IMaf77CXmpCo96a5x78d1w78FUoUfYYfBiOLW6fFg4RYd1O5QvnHFY9L18XijyrskVE0ffw3dyipECFU5cPpyHCsa136FuiCG7+iAKa8Ypi8NuyEqqWYO6ZBPXxuyadPhJ5fLXWDXFDBBP6niil7zp/RAGNPaOUbUozzGctXMHJocpBsgETdMiSJCqY6b5nY7cPH9wj7nv97PAipDmpM0hXFNsHooDGHeYLEiYRpr+8mMDb8MubvwbzKVGuj1aVG92uBHc0nos69utyB/U/iGLbmRsz/E/aoiTsG114hMfIUYIkQTTP3W/S1f9vWr8PVesEPTEQIdGtW6m1NAADUZ5vdB0cv4WSutzWvxkJX18Kz6s+Kul5T4Z3RXHPEQU0tyjmfCDoFcVvofK9CbEELYTHtmoYasOoj/NzUG2MZHhDlDRGt8ohCmjUivLcJpmgSMCu2hpD8G/7/PtWuCR0ut3WKpEY9GHbGJwXZkS52ilXYzyIAprh1gsAMogCMAGiAEyAKAATIArABIgCMAGiALwkxl99M9Nv5zBF/AAAAABJRU5ErkJggg==" InformativeScreenshot="88d1d8c59fe965e3b024401448d32fae.png" ScopeSelectorArgument="&lt;wnd app='msedge.exe' cls='Chrome_WidgetWin_1' title='www28.pointclickcare.com/poc/report/behaviorReport.xhtml and 1 m*' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V1" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                      <uix:Target DesignTimeRectangle="57, 168, 43, 19" ElementType="Text" FriendlyName="'Printer'" FullSelectorArgument="&lt;ctrl name='www28.pointclickcare.com/poc/report/behaviorReport.xhtml' role='document' /&gt;&lt;ctrl name='Printer' role='grouping' /&gt;&lt;ctrl name='Printer' role='text' /&gt;" FuzzySelectorArgument="&lt;ctrl name='www28.pointclickcare.com/poc/report/behaviorReport.xhtml' role='document' /&gt;&lt;ctrl name='Printer' role='grouping' /&gt;&lt;ctrl name='Printer' role='text' automationid='' check:fulltext='Printer' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAC8AAAAXCAYAAACbDhZsAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHaSURBVFhH7ZQtk4MwEIbv/0TFoerqUDgcCofCnUPh+AM4FA6HqsNF4aJwdVE43HubD3r02muvokc7wzuzM7DZJU82u3zgjbXBr6UNfi1t8GtpAa/QxAyMzcaxC1NUQrn16zq2KYKkxuDe/1OX8EGOVggI0aKMPDqEj1K6kAtN6AsfzC/QT851T2OPMgmQtreL8hddwscNPTlNHTK6hf3v9I9LNYjpm3HzbHgI5Av4PtftlKM5fCLgFmD29TbCxLO8w1Cn2FEM80Jkh6NZpWDXkrPFsGeYMDQZwh0nn27XDHOKamITV7UVIk9/2+6kdQN+hKxjcLY/tY0FZfBzQatL3w94HuCzkVBHapFYA6U4mIQJo6wRUUxUS4zjSB6aGwLk1J5Zd8SoJGqd45fQ21p4Bk5c7jwn3RhYbR6SejAbaFnQGcTqKnzSng4HYat9KthF2/Qo6IbOWlOW2NMNFJRj4b8LuNTvAyupCj+G8BzU6ir84mop4Da8ez8vmjWdM7fNtRG50/Pnego85ejK+2Vv2mhpunYvBt8a+H3WYpACvXK/Wx6i6AYoglZDh6o4GI7Xgqd6yiqCp+M8mh+zmYIoE/j6b0J+vguR0kA/UPn30wa/ljb4tfTG8MAXGQ6JoTzu/vYAAAAASUVORK5CYII=" SearchSteps="Selector, FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NClick ClickType="Single" DisplayName="Click 'Printer'" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NClick_2" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="5150569f-61e5-4b3d-a9b5-f8dd5920a54c" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="61, 236, 236, 32" DesignTimeScaleFactor="1" ElementType="ListItem" FriendlyName="'Save as PDF'" FullSelectorArgument="&lt;ctrl name='www28.pointclickcare.com/poc/report/behaviorReport.xhtml' role='document' /&gt;&lt;ctrl name='Printer' role='list' /&gt;&lt;ctrl name='Save as PDF' role='list item' /&gt;" FuzzySelectorArgument="&lt;ctrl name='www28.pointclickcare.com/poc/report/behaviorReport.xhtml' role='document' /&gt;&lt;ctrl name='Printer' role='list' /&gt;&lt;ctrl name='Save as PDF' role='list item' automationid='' check:fulltext='Save as PDF' /&gt;" Guid="f97dbbc2-bd47-4d90-8256-7a0e33dd2a5a" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAPAAAAAkCAYAAAC3+rerAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJtSURBVHhe7Z3dbcMgEIC7T6byJLxmhCh59SSeIvIOmYH6sKGAgaYVsXzSd9KnxpzNj3RfIXnxlyUIQm0gMEEojiDw8/m09/vdXq9XADgp4qi46iMI/Hg8ig8AwLkQV30EgX3y9XoBwEnxnvpAYABFIDCAYhAYQDEIDKAYBAZQDAIDKAaBARSDwACK6SzwbMfhYi8Xz2DHuXTfiZlMNP8VM7XzpXVOJr8n6wegAx0FnqzJi3Qe7aitaEXQYbSzv17WMMTryvO+bblnGOfQJgLH1wCfoJ/ArtCNnUo5TRQEncfhR8aSwEK2fgSGI+gncGkHTsiP11uxl8TP2kSg3XNFKmM41vn5XFWugqCJjDWBt7H9+hEYjqCjwAvbcbMo2ZIzoaDXYl8LPC18IS5+J28kjLs2U7g3oTpGLtRsp8l/zsgFdWuKvuNWBU7HQGA4gr4Ce6TIReSaaAuxiKmUslN6YfZyr/nWLvxD3K8I1ZpPwM89kP1A9QeB037emzPAX/iMwI50BxR2RZ1IuxW4CJK0Z8846r9u18eIchUBHQ1B2/n0n00sM8Cn+KDA+x0wLuj8KCx5KX7/d20XKeqy5vw2RtJek/S/AmftCAxH0E/g5PunEO/A+VF4vU7kEgGM2R2Pm7IltMZYPpuoj5ak/xDYzTE7FSAwHEE/gQvH3aSApfBDbrDG5Lvj+nyp6EWGuN/SrupojJH20fg++o7AoZ+NwnwQGI6go8AAcDQIDKAYBAZQDAIDKAaBARSDwACKQWAAxSAwgGIQGEAxVYF5uRmADoovN5NXFt5ut+IDAHAOqq8XJQhCXyAwQagNa78B7hHpECQwNYIAAAAASUVORK5CYII=" InformativeScreenshot="35de4794f2509c340a7df1f6ad2ffb96.png" ScopeSelectorArgument="&lt;wnd app='msedge.exe' cls='Chrome_WidgetWin_1' title='www28.pointclickcare.com/poc/report/behaviorReport.xhtml and 1 m*' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                      <uix:Target DesignTimeRectangle="57, 168, 43, 19" ElementType="Text" FriendlyName="'Printer'" FullSelectorArgument="&lt;ctrl name='www28.pointclickcare.com/poc/report/behaviorReport.xhtml' role='document' /&gt;&lt;ctrl name='Printer' role='grouping' /&gt;&lt;ctrl name='Printer' role='text' /&gt;" FuzzySelectorArgument="&lt;ctrl name='www28.pointclickcare.com/poc/report/behaviorReport.xhtml' role='document' /&gt;&lt;ctrl name='Printer' role='grouping' /&gt;&lt;ctrl name='Printer' role='text' automationid='' check:fulltext='Printer' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAC8AAAAXCAYAAACbDhZsAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHaSURBVFhH7ZQtk4MwEIbv/0TFoerqUDgcCofCnUPh+AM4FA6HqsNF4aJwdVE43HubD3r02muvokc7wzuzM7DZJU82u3zgjbXBr6UNfi1t8GtpAa/QxAyMzcaxC1NUQrn16zq2KYKkxuDe/1OX8EGOVggI0aKMPDqEj1K6kAtN6AsfzC/QT851T2OPMgmQtreL8hddwscNPTlNHTK6hf3v9I9LNYjpm3HzbHgI5Av4PtftlKM5fCLgFmD29TbCxLO8w1Cn2FEM80Jkh6NZpWDXkrPFsGeYMDQZwh0nn27XDHOKamITV7UVIk9/2+6kdQN+hKxjcLY/tY0FZfBzQatL3w94HuCzkVBHapFYA6U4mIQJo6wRUUxUS4zjSB6aGwLk1J5Zd8SoJGqd45fQ21p4Bk5c7jwn3RhYbR6SejAbaFnQGcTqKnzSng4HYat9KthF2/Qo6IbOWlOW2NMNFJRj4b8LuNTvAyupCj+G8BzU6ir84mop4Da8ez8vmjWdM7fNtRG50/Pnego85ejK+2Vv2mhpunYvBt8a+H3WYpACvXK/Wx6i6AYoglZDh6o4GI7Xgqd6yiqCp+M8mh+zmYIoE/j6b0J+vguR0kA/UPn30wa/ljb4tfTG8MAXGQ6JoTzu/vYAAAAASUVORK5CYII=" SearchSteps="Selector, FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+            </uix:NClick>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Edge" IconBase64="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" InformativeScreenshot="9e092b60eec634c0edf42f4c3502e24b.jpg" Selector="&lt;html app='msedge.exe' title='www28.pointclickcare.com/poc/report/behaviorReport.xhtml' /&gt;" Url="https://www28.pointclickcare.com/poc/report/behaviorReport.xhtml" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>
