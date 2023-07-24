@@ -31,7 +31,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>6391.5,15614</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>6391.5,15694</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="62">
@@ -157,7 +157,7 @@
       <x:Boolean x:Key="ShouldCollapseAll">False</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="Main Sequence For Section N" sap:VirtualizedContainerService.HintSize="6401.5,15509" sap2010:WorkflowViewState.IdRef="Sequence_5">
+  <Sequence DisplayName="Main Sequence For Section N" sap:VirtualizedContainerService.HintSize="6401.5,15469" sap2010:WorkflowViewState.IdRef="Sequence_5">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="IDataTable" />
       <Variable x:TypeArguments="sd:DataRow" Name="ReportRow" />
@@ -216,7 +216,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="6359.5,15417" sap2010:WorkflowViewState.IdRef="TryCatch_11">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="6359.5,15377" sap2010:WorkflowViewState.IdRef="TryCatch_11">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -224,7 +224,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <Sequence DisplayName="Sequence" sap:VirtualizedContainerService.HintSize="6321.5,15185" sap2010:WorkflowViewState.IdRef="Sequence_298">
+        <Sequence DisplayName="Sequence" sap:VirtualizedContainerService.HintSize="6321.5,15145" sap2010:WorkflowViewState.IdRef="Sequence_298">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -295,7 +295,7 @@
             </d:DataBase_Library.var_temp_python_param_file>
           </d:DataBase_Library>
           <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="6279.5,93" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;On MDS Section Tab&quot;]" />
-          <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application/Browser" sap:VirtualizedContainerService.HintSize="6279.5,10436" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" InUiElement="[In_Browser]" ScopeGuid="c1696cce-ea0c-4ce7-bd48-a7ecd70dca5f" Version="V2">
+          <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application/Browser" sap:VirtualizedContainerService.HintSize="6279.5,10396" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" InUiElement="[In_Browser]" ScopeGuid="c1696cce-ea0c-4ce7-bd48-a7ecd70dca5f" Version="V2">
             <uix:NApplicationCard.Body>
               <ActivityAction x:TypeArguments="x:Object">
                 <ActivityAction.Argument>
@@ -551,7 +551,7 @@
                   </ui:CommentOut>
                   <ui:CommentOut DisplayName="Comment Out 19_10" sap:VirtualizedContainerService.HintSize="3961,52" sap2010:WorkflowViewState.IdRef="CommentOut_136">
                     <ui:CommentOut.Body>
-                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="480,204" sap2010:WorkflowViewState.IdRef="Sequence_705">
+                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="480,389" sap2010:WorkflowViewState.IdRef="Sequence_705">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -703,7 +703,7 @@
                   </ui:CommentOut>
                   <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="3961,52" sap2010:WorkflowViewState.IdRef="CommentOut_51">
                     <ui:CommentOut.Body>
-                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="476,298" sap2010:WorkflowViewState.IdRef="Sequence_303">
+                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="476,285" sap2010:WorkflowViewState.IdRef="Sequence_303">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -805,7 +805,7 @@
                   </Assign>
                   <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="3961,52" sap2010:WorkflowViewState.IdRef="CommentOut_48">
                     <ui:CommentOut.Body>
-                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,210" sap2010:WorkflowViewState.IdRef="Sequence_279">
+                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,223" sap2010:WorkflowViewState.IdRef="Sequence_279">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -842,7 +842,7 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                     <If.Then>
-                      <Sequence sap:VirtualizedContainerService.HintSize="1387,85" sap2010:WorkflowViewState.IdRef="Sequence_466">
+                      <Sequence sap:VirtualizedContainerService.HintSize="1300,85" sap2010:WorkflowViewState.IdRef="Sequence_466">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -982,7 +982,7 @@
                         <Delay Duration="00:00:05" sap:VirtualizedContainerService.HintSize="2313,22" sap2010:WorkflowViewState.IdRef="Delay_4" />
                         <ui:OnUiElementAppear ContinueOnError="{x:Null}" FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" sap2010:Annotation.AnnotationText="N6- On pop up appears Select all below checkboxes" DisplayName="On Element Appear 'pane'" sap:VirtualizedContainerService.HintSize="2313,96" sap2010:WorkflowViewState.IdRef="OnUiElementAppear_4" RepeatForever="False">
                           <ui:OnUiElementAppear.Body>
-                            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="554,819" sap2010:WorkflowViewState.IdRef="Sequence_392">
+                            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="554,635" sap2010:WorkflowViewState.IdRef="Sequence_392">
                               <Sequence.Variables>
                                 <Variable x:TypeArguments="sd:DataTable" Name="CheckBoxData" />
                                 <Variable x:TypeArguments="scg:IEnumerable(ui:UiElement)" Name="Children" />
@@ -992,7 +992,7 @@
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="512,52" sap2010:WorkflowViewState.IdRef="CommentOut_65">
+                              <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="CommentOut_65">
                                 <ui:CommentOut.Body>
                                   <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,198" sap2010:WorkflowViewState.IdRef="Sequence_386">
                                     <sap:WorkflowViewStateService.ViewState>
@@ -1031,7 +1031,7 @@
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                               </ui:CommentOut>
-                              <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Maximize The Window" sap:VirtualizedContainerService.HintSize="512,52" sap2010:WorkflowViewState.IdRef="SendHotkey_4" Key="up" KeyModifiers="Win" SpecialKey="True">
+                              <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Maximize The Window" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="SendHotkey_4" Key="up" KeyModifiers="Win" SpecialKey="True">
                                 <ui:SendHotkey.Target>
                                   <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="282082e5-856a-41cf-979c-376fcd0ea102" InformativeScreenshot="c67da481f7566548edadb8ec3e60800f" Selector="&lt;wnd app='msedge.exe' cls='Chrome_WidgetWin_*' title='Route Of Admin - Profile 1 - Microsoft​ Edge' /&gt;&lt;ctrl name='Route Of Admin - Microsoft Edge' role='pane' /&gt;">
                                     <ui:Target.TimeoutMS>
@@ -1049,7 +1049,7 @@
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                               </ui:SendHotkey>
-                              <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="512,52" sap2010:WorkflowViewState.IdRef="CommentOut_66">
+                              <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="CommentOut_66">
                                 <ui:CommentOut.Body>
                                   <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,249" sap2010:WorkflowViewState.IdRef="Sequence_387">
                                     <sap:WorkflowViewStateService.ViewState>
@@ -1071,7 +1071,7 @@
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                               </ui:CommentOut>
-                              <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="512,52" sap2010:WorkflowViewState.IdRef="CommentOut_67">
+                              <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="CommentOut_67">
                                 <ui:CommentOut.Body>
                                   <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="476,291" sap2010:WorkflowViewState.IdRef="Sequence_389">
                                     <sap:WorkflowViewStateService.ViewState>
@@ -1110,7 +1110,7 @@
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                               </ui:CommentOut>
-                              <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[KeyDT]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="512,52" sap2010:WorkflowViewState.IdRef="ForEachRow_20">
+                              <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[KeyDT]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="ForEachRow_20">
                                 <ui:ForEachRow.Body>
                                   <ActivityAction x:TypeArguments="sd:DataRow">
                                     <ActivityAction.Argument>
@@ -1313,7 +1313,7 @@
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                               </ui:ForEachRow>
-                              <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" sap2010:Annotation.AnnotationText="Click on Update." ClickType="CLICK_SINGLE" DisplayName="Click On Update" sap:VirtualizedContainerService.HintSize="512,83" sap2010:WorkflowViewState.IdRef="Click_63" KeyModifiers="None" MouseButton="BTN_LEFT">
+                              <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" sap2010:Annotation.AnnotationText="Click on Update." ClickType="CLICK_SINGLE" DisplayName="Click On Update" sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="Click_63" KeyModifiers="None" MouseButton="BTN_LEFT">
                                 <ui:Click.CursorPosition>
                                   <ui:CursorPosition Position="Center">
                                     <ui:CursorPosition.OffsetX>
@@ -1572,7 +1572,7 @@
                               </ui:FilterDataTable>
                               <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="1850,52" sap2010:WorkflowViewState.IdRef="CommentOut_86">
                                 <ui:CommentOut.Body>
-                                  <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="518,378.5" sap2010:WorkflowViewState.IdRef="Sequence_483">
+                                  <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="518,191" sap2010:WorkflowViewState.IdRef="Sequence_483">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1891,13 +1891,13 @@
                                   </Sequence>
                                 </If.Then>
                                 <If.Else>
-                                  <Sequence sap:VirtualizedContainerService.HintSize="304,252" sap2010:WorkflowViewState.IdRef="Sequence_257">
+                                  <Sequence sap:VirtualizedContainerService.HintSize="304,256" sap2010:WorkflowViewState.IdRef="Sequence_257">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
-                                    <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_135">
+                                    <Assign sap:VirtualizedContainerService.HintSize="262,61" sap2010:WorkflowViewState.IdRef="Assign_135">
                                       <Assign.To>
                                         <OutArgument x:TypeArguments="x:String">[InjectionName]</OutArgument>
                                       </Assign.To>
@@ -1905,7 +1905,7 @@
                                         <InArgument x:TypeArguments="x:String">Not Found</InArgument>
                                       </Assign.Value>
                                     </Assign>
-                                    <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_136">
+                                    <Assign sap:VirtualizedContainerService.HintSize="262,61" sap2010:WorkflowViewState.IdRef="Assign_136">
                                       <Assign.To>
                                         <OutArgument x:TypeArguments="x:String">[Comment]</OutArgument>
                                       </Assign.To>
@@ -2230,7 +2230,7 @@
                               </If>
                               <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="1850,52" sap2010:WorkflowViewState.IdRef="CommentOut_97">
                                 <ui:CommentOut.Body>
-                                  <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,182" sap2010:WorkflowViewState.IdRef="Sequence_494">
+                                  <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,195" sap2010:WorkflowViewState.IdRef="Sequence_494">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -2280,9 +2280,10 @@
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="EmarFolder" DisplayName="Get emar folder" sap:VirtualizedContainerService.HintSize="586,52" sap2010:WorkflowViewState.IdRef="GetRobotAsset_1">
+                          <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="EmarFolder" DisplayName="Get emar folder" sap:VirtualizedContainerService.HintSize="725,52" sap2010:WorkflowViewState.IdRef="GetRobotAsset_1">
                             <ui:GetRobotAsset.Value>
                               <OutArgument x:TypeArguments="x:String">[emarFolder]</OutArgument>
                             </ui:GetRobotAsset.Value>
@@ -2293,15 +2294,15 @@
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                           </ui:GetRobotAsset>
-                          <Assign sap:VirtualizedContainerService.HintSize="586,61" sap2010:WorkflowViewState.IdRef="Assign_293">
+                          <Assign sap:VirtualizedContainerService.HintSize="725,61" sap2010:WorkflowViewState.IdRef="Assign_293">
                             <Assign.To>
                               <OutArgument x:TypeArguments="x:String">[completeFilePath]</OutArgument>
                             </Assign.To>
                             <Assign.Value>
-                              <InArgument x:TypeArguments="x:String">[emarFolder+"_"+ In_LookbackEndDate.ToString("MM-dd-yyyy")+".xlsx"]</InArgument>
+                              <InArgument x:TypeArguments="x:String">[emarFolder+"Emar_Data_"+ In_LookbackEndDate.ToString("MM-dd-yy")+".xlsx"]</InArgument>
                             </Assign.Value>
                           </Assign>
-                          <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" ShowExcelWindow="{x:Null}" DisplayName="Excel Process Scope" sap:VirtualizedContainerService.HintSize="586,1680" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_1">
+                          <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" ShowExcelWindow="{x:Null}" DisplayName="Excel Process Scope" sap:VirtualizedContainerService.HintSize="725,1680" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_1">
                             <ueab:ExcelProcessScopeX.Body>
                               <ActivityAction x:TypeArguments="ui:IExcelProcess">
                                 <ActivityAction.Argument>
@@ -2447,7 +2448,7 @@ if(ListMedication.Rows(VarIndex).Item("MedicationName").tostring.contains("ANTIA
                                                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                                       </scg:Dictionary>
                                                     </sap:WorkflowViewStateService.ViewState>
-                                                    <ui:MultipleAssign x:Key="ANTIPSYCHOTICS" DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="431,52" sap2010:WorkflowViewState.IdRef="MultipleAssign_120">
+                                                    <ui:MultipleAssign x:Key="ANTIPSYCHOTICS" DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="MultipleAssign_120">
                                                       <ui:MultipleAssign.AssignOperations>
                                                         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
                                                           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1035">
@@ -2531,7 +2532,7 @@ if(ListMedication.Rows(VarIndex).Item("MedicationName").tostring.contains("ANTIA
                                                         </scg:Dictionary>
                                                       </sap:WorkflowViewStateService.ViewState>
                                                     </ui:MultipleAssign>
-                                                    <ui:MultipleAssign x:Key="ANTIANXIETY" DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="431,52" sap2010:WorkflowViewState.IdRef="MultipleAssign_121">
+                                                    <ui:MultipleAssign x:Key="ANTIANXIETY" DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="MultipleAssign_121">
                                                       <ui:MultipleAssign.AssignOperations>
                                                         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
                                                           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1044">
@@ -2615,7 +2616,7 @@ if(ListMedication.Rows(VarIndex).Item("MedicationName").tostring.contains("ANTIA
                                                         </scg:Dictionary>
                                                       </sap:WorkflowViewStateService.ViewState>
                                                     </ui:MultipleAssign>
-                                                    <ui:MultipleAssign x:Key="ANTIDEPRESSANTS" DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="431,52" sap2010:WorkflowViewState.IdRef="MultipleAssign_122">
+                                                    <ui:MultipleAssign x:Key="ANTIDEPRESSANTS" DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="MultipleAssign_122">
                                                       <ui:MultipleAssign.AssignOperations>
                                                         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
                                                           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1053">
@@ -2699,7 +2700,7 @@ if(ListMedication.Rows(VarIndex).Item("MedicationName").tostring.contains("ANTIA
                                                         </scg:Dictionary>
                                                       </sap:WorkflowViewStateService.ViewState>
                                                     </ui:MultipleAssign>
-                                                    <ui:MultipleAssign x:Key="HYPNOTICS" DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="431,52" sap2010:WorkflowViewState.IdRef="MultipleAssign_123">
+                                                    <ui:MultipleAssign x:Key="HYPNOTICS" DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="MultipleAssign_123">
                                                       <ui:MultipleAssign.AssignOperations>
                                                         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
                                                           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1062">
@@ -2867,7 +2868,7 @@ if(ListMedication.Rows(VarIndex).Item("MedicationName").tostring.contains("ANTIA
                                                         </scg:Dictionary>
                                                       </sap:WorkflowViewStateService.ViewState>
                                                     </ui:MultipleAssign>
-                                                    <ui:MultipleAssign x:Key="ANTIINFECTIVE" DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="431,52" sap2010:WorkflowViewState.IdRef="MultipleAssign_125">
+                                                    <ui:MultipleAssign x:Key="ANTIINFECTIVE" DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="MultipleAssign_125">
                                                       <ui:MultipleAssign.AssignOperations>
                                                         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
                                                           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1080">
@@ -3962,13 +3963,13 @@ if(ListMedication.Rows(VarIndex).Item("MedicationName").tostring.contains("ANTIA
                                                   </Switch>
                                                   <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="262,52" sap2010:WorkflowViewState.IdRef="CommentOut_138">
                                                     <ui:CommentOut.Body>
-                                                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="1316,846" sap2010:WorkflowViewState.IdRef="Sequence_721">
+                                                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="1151,846" sap2010:WorkflowViewState.IdRef="Sequence_721">
                                                         <sap:WorkflowViewStateService.ViewState>
                                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                           </scg:Dictionary>
                                                         </sap:WorkflowViewStateService.ViewState>
-                                                        <If Condition="[MedicationName =&quot;&quot;]" sap:VirtualizedContainerService.HintSize="1274,754" sap2010:WorkflowViewState.IdRef="If_160">
+                                                        <If Condition="[MedicationName =&quot;&quot;]" sap:VirtualizedContainerService.HintSize="1109,754" sap2010:WorkflowViewState.IdRef="If_160">
                                                           <sap:WorkflowViewStateService.ViewState>
                                                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -4069,13 +4070,13 @@ if(ListMedication.Rows(VarIndex).Item("MedicationName").tostring.contains("ANTIA
                                                             </Sequence>
                                                           </If.Then>
                                                           <If.Else>
-                                                            <Sequence sap:VirtualizedContainerService.HintSize="756,595" sap2010:WorkflowViewState.IdRef="Sequence_720">
+                                                            <Sequence sap:VirtualizedContainerService.HintSize="591,595" sap2010:WorkflowViewState.IdRef="Sequence_720">
                                                               <sap:WorkflowViewStateService.ViewState>
                                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                                 </scg:Dictionary>
                                                               </sap:WorkflowViewStateService.ViewState>
-                                                              <Assign sap:VirtualizedContainerService.HintSize="714,60" sap2010:WorkflowViewState.IdRef="Assign_295">
+                                                              <Assign sap:VirtualizedContainerService.HintSize="549,60" sap2010:WorkflowViewState.IdRef="Assign_295">
                                                                 <Assign.To>
                                                                   <OutArgument x:TypeArguments="s:String[]">[Medication_Array]</OutArgument>
                                                                 </Assign.To>
@@ -4083,7 +4084,7 @@ if(ListMedication.Rows(VarIndex).Item("MedicationName").tostring.contains("ANTIA
                                                                   <InArgument x:TypeArguments="s:String[]">[MedicationName.Split(","c)]</InArgument>
                                                                 </Assign.Value>
                                                               </Assign>
-                                                              <If Condition="[MedicationName =&quot;&quot; or MedicationName = &quot;NA&quot;]" sap:VirtualizedContainerService.HintSize="714,403" sap2010:WorkflowViewState.IdRef="If_159">
+                                                              <If Condition="[MedicationName =&quot;&quot; or MedicationName = &quot;NA&quot;]" sap:VirtualizedContainerService.HintSize="549,403" sap2010:WorkflowViewState.IdRef="If_159">
                                                                 <sap:WorkflowViewStateService.ViewState>
                                                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -4091,7 +4092,7 @@ if(ListMedication.Rows(VarIndex).Item("MedicationName").tostring.contains("ANTIA
                                                                   </scg:Dictionary>
                                                                 </sap:WorkflowViewStateService.ViewState>
                                                                 <If.Then>
-                                                                  <Sequence sap:VirtualizedContainerService.HintSize="334.5,84" sap2010:WorkflowViewState.IdRef="Sequence_717">
+                                                                  <Sequence sap:VirtualizedContainerService.HintSize="200,84" sap2010:WorkflowViewState.IdRef="Sequence_717">
                                                                     <sap:WorkflowViewStateService.ViewState>
                                                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -4100,13 +4101,13 @@ if(ListMedication.Rows(VarIndex).Item("MedicationName").tostring.contains("ANTIA
                                                                   </Sequence>
                                                                 </If.Then>
                                                                 <If.Else>
-                                                                  <Sequence sap:VirtualizedContainerService.HintSize="334.5,244" sap2010:WorkflowViewState.IdRef="Sequence_719">
+                                                                  <Sequence sap:VirtualizedContainerService.HintSize="304,244" sap2010:WorkflowViewState.IdRef="Sequence_719">
                                                                     <sap:WorkflowViewStateService.ViewState>
                                                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                                       </scg:Dictionary>
                                                                     </sap:WorkflowViewStateService.ViewState>
-                                                                    <Assign sap:VirtualizedContainerService.HintSize="292.5,60" sap2010:WorkflowViewState.IdRef="Assign_296">
+                                                                    <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_296">
                                                                       <Assign.To>
                                                                         <OutArgument x:TypeArguments="s:String[]">[Medication_Array]</OutArgument>
                                                                       </Assign.To>
@@ -4114,7 +4115,7 @@ if(ListMedication.Rows(VarIndex).Item("MedicationName").tostring.contains("ANTIA
                                                                         <InArgument x:TypeArguments="s:String[]">[MedicationName.Split(","c)]</InArgument>
                                                                       </Assign.Value>
                                                                     </Assign>
-                                                                    <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="292.5,52" sap2010:WorkflowViewState.IdRef="ForEach`1_32" Values="[Medication_Array]">
+                                                                    <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="262,52" sap2010:WorkflowViewState.IdRef="ForEach`1_32" Values="[Medication_Array]">
                                                                       <ui:ForEach.Body>
                                                                         <ActivityAction x:TypeArguments="x:Object">
                                                                           <ActivityAction.Argument>
@@ -4171,6 +4172,12 @@ if(ListMedication.Rows(VarIndex).Item("MedicationName").tostring.contains("ANTIA
                                                 </Sequence>
                                               </ActivityAction>
                                             </ui:ForEachRow.Body>
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
                                           </ui:ForEachRow>
                                         </Sequence>
                                       </ActivityAction>
@@ -4193,9 +4200,9 @@ if(ListMedication.Rows(VarIndex).Item("MedicationName").tostring.contains("ANTIA
                             </sap:WorkflowViewStateService.ViewState>
                           </ueab:ExcelProcessScopeX>
                         </Sequence>
-                        <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="2313,52" sap2010:WorkflowViewState.IdRef="CommentOut_139">
+                        <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="2313,52" sap2010:WorkflowViewState.IdRef="CommentOut_140">
                           <ui:CommentOut.Body>
-                            <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="476,188" sap2010:WorkflowViewState.IdRef="Sequence_722">
+                            <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="476,188" sap2010:WorkflowViewState.IdRef="Sequence_723">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
