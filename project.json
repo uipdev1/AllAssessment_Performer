@@ -15,6 +15,7 @@
     "Get.Report": "[1.0.39]",
     "Get.Report.EMAR": "[1.0.15]",
     "Get.Report.Section.E": "[1.0.17]",
+    "GetEmarData": "[1.0.6]",
     "GetMDS_Answers": "[1.0.9]",
     "Go_BackFromReports": "[1.0.6]",
     "Maintance.Window": "[1.0.1]",
@@ -39,7 +40,7 @@
   "entitiesStores": [],
   "schemaVersion": "4.0",
   "studioVersion": "21.10.4.0",
-  "projectVersion": "1.0.296",
+  "projectVersion": "1.0.300",
   "runtimeOptions": {
     "autoDispose": false,
     "netFrameworkLazyLoading": false,

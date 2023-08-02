@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1155,866</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>820,866</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Main2_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="58">
@@ -246,9 +246,9 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <Transition.To>
-            <State x:Name="__ReferenceID2" sap2010:Annotation.AnnotationText="Process a single transaction. &#xA;The result of the processing can be: 1) Success, 2) Business Exception, 3) System Exception. &#xA;In the case of a system exception, the transaction can be automatically retried." DisplayName="Process Transaction" sap:VirtualizedContainerService.HintSize="231,194" sap2010:WorkflowViewState.IdRef="State_3">
+            <State x:Name="__ReferenceID2" sap2010:Annotation.AnnotationText="Process a single transaction. &#xA;The result of the processing can be: 1) Success, 2) Business Exception, 3) System Exception. &#xA;In the case of a system exception, the transaction can be automatically retried." DisplayName="Process Transaction" sap:VirtualizedContainerService.HintSize="484,1320" sap2010:WorkflowViewState.IdRef="State_3">
               <State.Entry>
-                <TryCatch DisplayName="Try to process transaction" sap:VirtualizedContainerService.HintSize="957,1832" sap2010:WorkflowViewState.IdRef="TryCatch_9">
+                <TryCatch DisplayName="Try to process transaction" sap:VirtualizedContainerService.HintSize="438,784" sap2010:WorkflowViewState.IdRef="TryCatch_9">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -256,7 +256,7 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <TryCatch.Try>
-                    <Sequence DisplayName="Process the current TransactionItem" sap:VirtualizedContainerService.HintSize="480,1046" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                    <Sequence DisplayName="Process the current TransactionItem" sap:VirtualizedContainerService.HintSize="376,489" sap2010:WorkflowViewState.IdRef="Sequence_28">
                       <Sequence.Variables>
                         <Variable x:TypeArguments="x:String" Name="ResidentName" />
                         <Variable x:TypeArguments="x:String" Name="Type" />
@@ -268,7 +268,7 @@
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="438,224" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+                      <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="334,52" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
                         <ui:MultipleAssign.AssignOperations>
                           <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
                             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
@@ -313,8 +313,14 @@
                             </ui:AssignOperation>
                           </scg:List>
                         </ui:MultipleAssign.AssignOperations>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
                       </ui:MultipleAssign>
-                      <Assign DisplayName="Assign BusinessException" sap:VirtualizedContainerService.HintSize="438,60" sap2010:WorkflowViewState.IdRef="Assign_25">
+                      <Assign DisplayName="Assign BusinessException" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_25">
                         <Assign.To>
                           <OutArgument x:TypeArguments="ui:BusinessRuleException">[BusinessException]</OutArgument>
                         </Assign.To>
@@ -322,47 +328,121 @@
                           <InArgument x:TypeArguments="ui:BusinessRuleException">[Nothing]</InArgument>
                         </Assign.Value>
                       </Assign>
-                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Process workflow" sap:VirtualizedContainerService.HintSize="438,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_24" UnSafe="False" WorkflowFileName="Framework\Process.xaml">
+                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Process workflow" sap:VirtualizedContainerService.HintSize="334,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_24" UnSafe="False" WorkflowFileName="Framework\Process.xaml">
                         <ui:InvokeWorkflowFile.Arguments>
-                          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[TransactionItem]</InArgument>
-                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[Config]</InArgument>
-                          <InArgument x:TypeArguments="ui:UiElement" x:Key="In_Browser">[VarBrowser]</InArgument>
-                          <OutArgument x:TypeArguments="sd:DataTable" x:Key="Out_ExceptionDT">[Exception_DT]</OutArgument>
-                          <OutArgument x:TypeArguments="x:String" x:Key="Out_ReportName">[FinalReportName]</OutArgument>
-                          <InArgument x:TypeArguments="sd:DataTable" x:Key="In_SectionAKeywordDT">[SectionAKeywordDT]</InArgument>
-                          <InArgument x:TypeArguments="sd:DataTable" x:Key="In_SectionBKeywordDT">[SectionBKeywordDT]</InArgument>
-                          <InArgument x:TypeArguments="sd:DataTable" x:Key="In_SectionCKeywordDT">[SectionCKeywordDT]</InArgument>
-                          <InArgument x:TypeArguments="sd:DataTable" x:Key="In_SectionDKeywordDT">[SectionDKeywordDT]</InArgument>
-                          <InArgument x:TypeArguments="sd:DataTable" x:Key="In_SectionEKeywordDT">[SectionEKeywordDT]</InArgument>
-                          <InArgument x:TypeArguments="sd:DataTable" x:Key="In_SectionGGKeywordDT">[SectionGGKeywordDT]</InArgument>
-                          <InArgument x:TypeArguments="sd:DataTable" x:Key="In_SectionGKeywordDT">[SectionGKeywordDT]</InArgument>
-                          <InArgument x:TypeArguments="sd:DataTable" x:Key="In_SectionHKeywordDT">[SectionHKeywordDT]</InArgument>
-                          <InArgument x:TypeArguments="sd:DataTable" x:Key="In_SectionIKeywordDT">[SectionIKeywordDT]</InArgument>
-                          <InArgument x:TypeArguments="sd:DataTable" x:Key="In_SectionKKeywordDT">[SectionKKeywordDT]</InArgument>
-                          <InArgument x:TypeArguments="sd:DataTable" x:Key="In_SectionMKeywordDT">[SectionMKeywordDT]</InArgument>
-                          <InArgument x:TypeArguments="sd:DataTable" x:Key="In_SectionNKeywordDT">[SectionNKeywordDT]</InArgument>
-                          <InArgument x:TypeArguments="sd:DataTable" x:Key="In_SectionOKeywordDT">[SectionOKeywordDT]</InArgument>
-                          <InArgument x:TypeArguments="sd:DataTable" x:Key="In_SectionJKeywordDT">[SectionJKeywordDT]</InArgument>
-                          <InArgument x:TypeArguments="sd:DataTable" x:Key="In_SectionNRouteDT">[SectionNRouteDT]</InArgument>
-                          <InArgument x:TypeArguments="sd:DataTable" x:Key="In_SectionGTaskDT">[SectionGTaskDT]</InArgument>
-                          <InArgument x:TypeArguments="sd:DataTable" x:Key="In_DTFieldNames">[DT_FieldNames]</InArgument>
-                          <InOutArgument x:TypeArguments="sd:DataTable" x:Key="Out_DTProcessStatus">[DT_ProcessStatus]</InOutArgument>
-                          <InArgument x:TypeArguments="sd:DataTable" x:Key="In_MedicationNameListDT">[VarDTMedicationNameList]</InArgument>
-                          <InArgument x:TypeArguments="x:Int32" x:Key="In_TransactionNumber">[TransactionNumber]</InArgument>
-                          <InArgument x:TypeArguments="sd:DataTable" x:Key="In_DTAmbiguosList">[DTAmbeguisList]</InArgument>
-                          <InArgument x:TypeArguments="sd:DataTable" x:Key="In_DTAddmissionEval">[DT_AdmissionEval]</InArgument>
-                          <InArgument x:TypeArguments="sd:DataTable" x:Key="In_DTSectionAssesmentCK">[DT_SectionAssesmentCK]</InArgument>
-                          <OutArgument x:TypeArguments="x:Boolean" x:Key="Out_MaintenanceExists">[MaintenanceExists]</OutArgument>
-                          <OutArgument x:TypeArguments="x:String" x:Key="Out_ScrPath">[MaintenenceScrPath]</OutArgument>
-                          <OutArgument x:TypeArguments="x:String" x:Key="Out_SceDetailsPath">[MaintenanceDetailsPath]</OutArgument>
-                          <InArgument x:TypeArguments="sd:DataTable" x:Key="Parameters_DT">[ParametersDT]</InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="DB_FileName">[DB_FileName]</InArgument>
-                          <InArgument x:TypeArguments="x:Int32" x:Key="RetryNumberQueue">[RetryNumber]</InArgument>
+                          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">
+                            <mva:VisualBasicValue x:TypeArguments="ui:QueueItem" ExpressionText="TransactionItem" />
+                          </InArgument>
+                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
+                            <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="Config" />
+                          </InArgument>
+                          <InArgument x:TypeArguments="ui:UiElement" x:Key="In_Browser">
+                            <mva:VisualBasicValue x:TypeArguments="ui:UiElement" ExpressionText="VarBrowser" />
+                          </InArgument>
+                          <OutArgument x:TypeArguments="sd:DataTable" x:Key="Out_ExceptionDT">
+                            <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="Exception_DT" />
+                          </OutArgument>
+                          <OutArgument x:TypeArguments="x:String" x:Key="Out_ReportName">
+                            <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="FinalReportName" />
+                          </OutArgument>
+                          <InArgument x:TypeArguments="sd:DataTable" x:Key="In_SectionAKeywordDT">
+                            <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="SectionAKeywordDT" />
+                          </InArgument>
+                          <InArgument x:TypeArguments="sd:DataTable" x:Key="In_SectionBKeywordDT">
+                            <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="SectionBKeywordDT" />
+                          </InArgument>
+                          <InArgument x:TypeArguments="sd:DataTable" x:Key="In_SectionCKeywordDT">
+                            <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="SectionCKeywordDT" />
+                          </InArgument>
+                          <InArgument x:TypeArguments="sd:DataTable" x:Key="In_SectionDKeywordDT">
+                            <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="SectionDKeywordDT" />
+                          </InArgument>
+                          <InArgument x:TypeArguments="sd:DataTable" x:Key="In_SectionEKeywordDT">
+                            <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="SectionEKeywordDT" />
+                          </InArgument>
+                          <InArgument x:TypeArguments="sd:DataTable" x:Key="In_SectionGGKeywordDT">
+                            <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="SectionGGKeywordDT" />
+                          </InArgument>
+                          <InArgument x:TypeArguments="sd:DataTable" x:Key="In_SectionGKeywordDT">
+                            <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="SectionGKeywordDT" />
+                          </InArgument>
+                          <InArgument x:TypeArguments="sd:DataTable" x:Key="In_SectionHKeywordDT">
+                            <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="SectionHKeywordDT" />
+                          </InArgument>
+                          <InArgument x:TypeArguments="sd:DataTable" x:Key="In_SectionIKeywordDT">
+                            <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="SectionIKeywordDT" />
+                          </InArgument>
+                          <InArgument x:TypeArguments="sd:DataTable" x:Key="In_SectionKKeywordDT">
+                            <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="SectionKKeywordDT" />
+                          </InArgument>
+                          <InArgument x:TypeArguments="sd:DataTable" x:Key="In_SectionMKeywordDT">
+                            <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="SectionMKeywordDT" />
+                          </InArgument>
+                          <InArgument x:TypeArguments="sd:DataTable" x:Key="In_SectionNKeywordDT">
+                            <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="SectionNKeywordDT" />
+                          </InArgument>
+                          <InArgument x:TypeArguments="sd:DataTable" x:Key="In_SectionOKeywordDT">
+                            <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="SectionOKeywordDT" />
+                          </InArgument>
+                          <InArgument x:TypeArguments="sd:DataTable" x:Key="In_SectionJKeywordDT">
+                            <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="SectionJKeywordDT" />
+                          </InArgument>
+                          <InArgument x:TypeArguments="sd:DataTable" x:Key="In_SectionNRouteDT">
+                            <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="SectionNRouteDT" />
+                          </InArgument>
+                          <InArgument x:TypeArguments="sd:DataTable" x:Key="In_SectionGTaskDT">
+                            <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="SectionGTaskDT" />
+                          </InArgument>
+                          <InArgument x:TypeArguments="sd:DataTable" x:Key="In_DTFieldNames">
+                            <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="DT_FieldNames" />
+                          </InArgument>
+                          <InOutArgument x:TypeArguments="sd:DataTable" x:Key="Out_DTProcessStatus">
+                            <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="DT_ProcessStatus" />
+                          </InOutArgument>
+                          <InArgument x:TypeArguments="sd:DataTable" x:Key="In_MedicationNameListDT">
+                            <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="VarDTMedicationNameList" />
+                          </InArgument>
+                          <InArgument x:TypeArguments="x:Int32" x:Key="In_TransactionNumber">
+                            <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="TransactionNumber" />
+                          </InArgument>
+                          <InArgument x:TypeArguments="sd:DataTable" x:Key="In_DTAmbiguosList">
+                            <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="DTAmbeguisList" />
+                          </InArgument>
+                          <InArgument x:TypeArguments="sd:DataTable" x:Key="In_DTAddmissionEval">
+                            <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="DT_AdmissionEval" />
+                          </InArgument>
+                          <InArgument x:TypeArguments="sd:DataTable" x:Key="In_DTSectionAssesmentCK">
+                            <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="DT_SectionAssesmentCK" />
+                          </InArgument>
+                          <OutArgument x:TypeArguments="x:Boolean" x:Key="Out_MaintenanceExists">
+                            <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="MaintenanceExists" />
+                          </OutArgument>
+                          <OutArgument x:TypeArguments="x:String" x:Key="Out_ScrPath">
+                            <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="MaintenenceScrPath" />
+                          </OutArgument>
+                          <OutArgument x:TypeArguments="x:String" x:Key="Out_SceDetailsPath">
+                            <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="MaintenanceDetailsPath" />
+                          </OutArgument>
+                          <InArgument x:TypeArguments="sd:DataTable" x:Key="Parameters_DT">
+                            <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="ParametersDT" />
+                          </InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="DB_FileName">
+                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="DB_FileName" />
+                          </InArgument>
+                          <InArgument x:TypeArguments="x:Int32" x:Key="RetryNumberQueue">
+                            <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="RetryNumber" />
+                          </InArgument>
                         </ui:InvokeWorkflowFile.Arguments>
                       </ui:InvokeWorkflowFile>
-                      <TryCatch DisplayName="Try Catch Set Transaction Status (Success)" sap:VirtualizedContainerService.HintSize="438,339" sap2010:WorkflowViewState.IdRef="TryCatch_10">
+                      <TryCatch DisplayName="Try Catch Set Transaction Status (Success)" sap:VirtualizedContainerService.HintSize="334,52" sap2010:WorkflowViewState.IdRef="TryCatch_10">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
                         <TryCatch.Try>
-                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke SetTransactionStatus (Success)" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_26" UnSafe="False" WorkflowFileName="Framework\SetTransactionStatus.xaml">
+                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke SetTransactionStatus (Success)" sap:VirtualizedContainerService.HintSize="334,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_26" UnSafe="False" WorkflowFileName="Framework\SetTransactionStatus.xaml">
                             <ui:InvokeWorkflowFile.Arguments>
                               <InArgument x:TypeArguments="ui:BusinessRuleException" x:Key="in_BusinessException">[Nothing]</InArgument>
                               <InArgument x:TypeArguments="x:String" x:Key="in_TransactionField1">[TransactionField1]</InArgument>
@@ -380,7 +460,7 @@
                           </ui:InvokeWorkflowFile>
                         </TryCatch.Try>
                         <TryCatch.Catches>
-                          <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_11">
+                          <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,22" sap2010:WorkflowViewState.IdRef="Catch`1_11">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -391,7 +471,7 @@
                               <ActivityAction.Argument>
                                 <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                               </ActivityAction.Argument>
-                              <ui:LogMessage DisplayName="Log message (Failed to set transaction status Success)" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_32" Level="Fatal" Message="[&quot;SetTransactionStatus.xaml failed: &quot;+exception.Message+&quot; at Source: &quot;+exception.Source]" />
+                              <ui:LogMessage DisplayName="Log message (Failed to set transaction status Success)" sap:VirtualizedContainerService.HintSize="334,93" sap2010:WorkflowViewState.IdRef="LogMessage_32" Level="Fatal" Message="[&quot;SetTransactionStatus.xaml failed: &quot;+exception.Message+&quot; at Source: &quot;+exception.Source]" />
                             </ActivityAction>
                           </Catch>
                         </TryCatch.Catches>
@@ -399,7 +479,7 @@
                     </Sequence>
                   </TryCatch.Try>
                   <TryCatch.Catches>
-                    <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="923,21" sap2010:WorkflowViewState.IdRef="Catch`1_9">
+                    <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="404,22" sap2010:WorkflowViewState.IdRef="Catch`1_9">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -410,14 +490,14 @@
                         <ActivityAction.Argument>
                           <DelegateInArgument x:TypeArguments="ui:BusinessRuleException" Name="Exception" />
                         </ActivityAction.Argument>
-                        <Sequence DisplayName="Handle Business Exception" sap:VirtualizedContainerService.HintSize="551,1872" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                        <Sequence DisplayName="Handle Business Exception" sap:VirtualizedContainerService.HintSize="551,1833" sap2010:WorkflowViewState.IdRef="Sequence_29">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <If Condition="[Config(&quot;ExceptionEmail&quot;).ToString.Contains(&quot;Yes&quot;)]" sap:VirtualizedContainerService.HintSize="509,758" sap2010:WorkflowViewState.IdRef="If_29">
+                          <If Condition="[Config(&quot;ExceptionEmail&quot;).ToString.Contains(&quot;Yes&quot;)]" sap:VirtualizedContainerService.HintSize="509,761" sap2010:WorkflowViewState.IdRef="If_29">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -598,10 +678,10 @@
                         </Sequence>
                       </ActivityAction>
                     </Catch>
-                    <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="923,1648" sap2010:WorkflowViewState.IdRef="Catch`1_10">
+                    <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,22" sap2010:WorkflowViewState.IdRef="Catch`1_10">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
@@ -609,7 +689,7 @@
                         <ActivityAction.Argument>
                           <DelegateInArgument x:TypeArguments="s:Exception" Name="Exception" />
                         </ActivityAction.Argument>
-                        <Sequence DisplayName="Handle System Exception" sap:VirtualizedContainerService.HintSize="917,1579" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                        <Sequence DisplayName="Handle System Exception" sap:VirtualizedContainerService.HintSize="917,1580" sap2010:WorkflowViewState.IdRef="Sequence_30">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -623,7 +703,7 @@
                               <InArgument x:TypeArguments="s:Exception">[Exception]</InArgument>
                             </Assign.Value>
                           </Assign>
-                          <If Condition="[Config(&quot;ExceptionEmail&quot;).ToString.Contains(&quot;Yes&quot;)]" sap:VirtualizedContainerService.HintSize="875,1008" sap2010:WorkflowViewState.IdRef="If_30">
+                          <If Condition="[Config(&quot;ExceptionEmail&quot;).ToString.Contains(&quot;Yes&quot;)]" sap:VirtualizedContainerService.HintSize="875,1011" sap2010:WorkflowViewState.IdRef="If_30">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
